@@ -11,21 +11,24 @@
 
 // JQUERY代码 需要引入jquery库
 // 按钮 鼠标按下 事件
-$("#toggole").mousedown(function(){
-	// 按钮变色
-	$(this).css("background-color","#1966E0");
-	if ($(".border_bottom").hasClass("first_transition")) {
-		$(".text_transition").removeClass("color");
-		$(".border_bottom").removeClass("first_transition");
-	}else{
-		$(".text_transition").addClass("color");
-		$(".border_bottom").addClass("first_transition");
-	}
-	
-});
+$(function(){
+	$("#toggole").mousedown(function(){
+		// 按钮变色
+		$(this).css("background-color","#1966E0");
+		if ($(".border_bottom").hasClass("first_transition")) {
+			$(".text_transition").removeClass("color");
+			$(".border_bottom").removeClass("first_transition");
+		}else{
+			$(".text_transition").addClass("color");
+			$(".border_bottom").addClass("first_transition");
+		}
+		
+	});
 
-// 按钮 鼠标释放 事件
-$("#toggole").mouseup(function(){
-	// 按钮变色
-	$(this).css("background-color","#fff");
+	// 按钮 鼠标释放 事件
+	$("#toggole").mouseup(function(){
+		// 按钮变色
+		$(this).css("background-color","#fff");
+	});
 });
+	
