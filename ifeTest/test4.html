@@ -8,21 +8,37 @@
 			width: 250px;
 			height: 350px;
 			margin: auto;
-			background: url("src/img/test4_img2.jpg");
-			opacity: 1;
 
 			transition: all 1s linear;
 		}
-		.img_wrap:hover {
+		#front {
+			width: 250px;
+			height: 350px;
+			position: absolute;
 			transform: rotateY(180deg);
-			opacity: 1;
+			transition: all 0.8s;
 			background: url("src/img/test4_img1.jpg");
+		}
+		#behind {
+			width: 250px;
+			height: 350px;
+			position: absolute;
+			transition: all 0.8s;
+			backface-visibility: hidden;
+			background: url("src/img/test4_img2.jpg");
+		}
+		.img_wrap:hover #front{
+			transform: rotateY(0deg);
+		}
+		.img_wrap:hover #behind{
+			transform: rotateY(180deg);
 		}
 	</style>
 </head>
 <body>
 	<div class="img_wrap">
-		
+		<div id="front"></div>
+		<div id="behind"></div>
 	</div>
 </body>
 </html>
