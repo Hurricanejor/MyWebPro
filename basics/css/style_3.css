@@ -1,0 +1,64 @@
+body {
+	border: 1px solid #999999;
+}
+h1 {
+	line-height: 60px;
+	text-indent: 10pt;
+	margin: 0;
+	padding: 0;
+	color: white;
+	background-color: #666666;
+}
+.basic_info_box,
+.contact_box,
+.skill_box,
+.education_box,
+.experience_box {
+	box-sizing: border-box;
+	border-top: 1px solid #DCDCDC;
+}
+.basic_info_box h2,
+.contact_box h2,
+.skill_box h2,
+.education_box h2,
+.experience_box h2 {
+	margin: 0;
+	margin-bottom: 1px;
+	padding: 0;
+	background-color: #DCDCDC;
+	width: 150px;
+	text-align: center;
+	line-height: 100px;
+	display: inline-block;
+	
+}
+.basic_info_box h2~p,
+.contact_box h2~p,
+.skill_box h2~p,
+.education_box h2~p,
+.experience_box h2~p {
+	display: inline-block;
+	vertical-align: top;
+}
+.skill_content,
+.education_content,
+.experience_content {
+	box-sizing: border-box;
+	display: inline-block;
+}
+.skill_content p,
+.education_content p,
+.experience_content p {
+	margin: 0;
+}
+.skill_box p:last-child {
+	clear: both;
+}
+p span {
+	font-weight: bold;
+	margin-right: 10px;
+}
+p i {
+	font-style: normal;
+	margin-right: 30px;
+}
