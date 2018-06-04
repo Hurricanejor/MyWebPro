@@ -43,7 +43,7 @@
 <body>
 	<input type="text" id="input_username" name="" placeholder="请输入用户名">
 	<button id="sayHi">打个招呼吧！</button>
-	<p id="welcome">欢迎查看我的简历！你好呀，<span id="username"></span><br />点击<a href="js_16.html">这里</a>可以查看用JS实现的简单的加减乘除小例子哟~</p>
+	<p id="welcome">欢迎查看我的简历！<span id="greet"></span><span id="username"></span><br />点击<a href="js_16.html">这里</a>可以查看用JS实现的简单的加减乘除小例子哟~</p>
 	<h1 id="resume">简历</h1>
 	<h1><span>姓名：</span>张三三</h1>
 	<p>131-1111-1111 | <a class="email">m18837123805@163.com</a> | 北京</p>
@@ -110,7 +110,27 @@
 </html>
 <script type="text/javascript">
 	// document.getElementsByTagName("h1").style.fontSize = "25px";
+	var str = "";
 	document.getElementById("sayHi").onclick = function() {
 		document.getElementById("username").innerHTML = document.getElementById("input_username").value;
 	}
+	function toGreet() {
+		var dateTime = new Date();
+		var myhours = dateTime.getHours();
+		console.log(myhours);
+		if (myhours >= 6 && myhours <= 12) {
+			str = "上午好!";
+		}
+		else if (myhours >= 13 && myhours < 19) {
+			str = "下午好!";
+		}
+		else if (myhours >= 19 && myhours <= 24) {
+			str = "晚上好!";
+		}
+		else if (myhours >= 0 && myhours < 6) {
+			str = "凌晨时间，请注意休息哦~";
+		}
+		document.getElementById("greet").innerHTML = str;
+	}
+	toGreet();
 </script>

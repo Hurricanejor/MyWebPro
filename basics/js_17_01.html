@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>        
+    <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+    <button id="trans-btn">转化为二进制</button>
+    <p id="result">运算结果:</p>
+    <a href="js_17_02.html">下一个任务</a>
+    <script>
+
+    var val;
+	document.getElementById("trans-btn").onclick = function dec2bin(decNumber) {
+	    // 在这里实现你的转化方法，注意需要判断输入必须为一个非负整数
+	    val = document.getElementById("dec-number").value;
+	    decNumber = parseInt(val);
+
+	    // 非负整数判断
+	    if (decNumber < 0 || decNumber % 1 != 0 || val.indexOf(".") > -1) {
+	    	document.getElementById("result").innerHTML = "运算结果:请输入非负整数";
+	    }
+	    else {
+	    		var arr = "";
+	    		var shang = Math.floor(decNumber);//商
+	    		var yushu = "";//余数
+    			while (shang != 0) {
+    				yushu = Math.floor(shang % 2);
+    				shang = Math.floor(shang / 2);
+    				console.log("余数："+yushu);
+    				console.log("商："+shang);
+    				arr += yushu.toString();
+    				console.log("结果："+arr);
+    				
+    			}
+    			arr = arr.toString().split("").reverse();
+    			arr = arr.join("");
+    			// join() 方法用于把数组中的所有元素放入一个字符串。元素是通过指定的分隔符进行分隔的。
+    			document.getElementById("result").innerHTML = "运算结果："+arr;
+	    }
+	}
+
+// 实现党点击转化按钮时，将输入的十进制数字转化为二进制，并显示在result的p标签内
+// Some coding
+
+	
+
+    </script>
+</body>
+</html>

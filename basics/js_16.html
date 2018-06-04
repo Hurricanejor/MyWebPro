@@ -35,7 +35,13 @@
         // 除法
         document.getElementById("divide-btn").onclick = function() {
             document.getElementById("result").innerHTML = "运算结果:";
-            document.getElementById("result").innerHTML +=  parseInt(document.getElementById("first-number").value) / parseInt(document.getElementById("second-number").value);
+            if (parseInt(document.getElementById("second-number").value) == 0) {
+                document.getElementById("result").innerHTML = "被除数不能为零。";
+            }
+            else{
+                document.getElementById("result").innerHTML +=  parseInt(document.getElementById("first-number").value) / parseInt(document.getElementById("second-number").value);
+            }
+            
         }
     </script>
 </body>
