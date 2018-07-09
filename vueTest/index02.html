@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>一级路由配置（分写方法）</title>
+	<script type="text/javascript" src="./src/js/vue.js"></script>
+	<!-- 
+		一级路由配置：
+		1.引入vue-router.js库
+	 -->
+	<script type="text/javascript" src="./src/js/vue-router.js"></script>
+	<style type="text/css">
+		li {
+			list-style-type: none;
+			display: inline;
+			margin: 20px 10px;
+		}
+		a {
+			text-decoration: none;
+		}
+		.show {
+			width: 300px;
+			height: 200px;
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<ul>
+			<li>
+				<router-link to="/home">home</router-link>
+			</li>
+			<li>
+				<router-link to="/news">news</router-link>
+			</li>
+			<li>
+				<router-link to="/hot">hot</router-link>
+			</li>
+		</ul>
+		<div class="show">
+			<router-view></router-view>
+		</div>
+	</div>
+
+	<template id="home">
+		<div>
+			<h2>首页</h2>
+			<ul>
+				<li>今日热点</li>
+				<li>体育新闻</li>
+				<li>娱乐看点</li>
+			</ul>
+		</div>
+	</template>
+</body>
+</html>
+
+<script type="text/javascript">
+	// 1.准备路由所需模块（组件）
+	// 全局Vue下，有extend(),用来注册路由所需的模块（组件）
+	// 模块名称，首字母大写
+	var Home = Vue.extend({
+		template: '#home'
+	});
+
+	var News = Vue.extend({
+		template: '<h1>news</h1>'
+	});
+
+	var Hot = Vue.extend({
+		template: '<h1>hot</h1>'
+	});
+
+	// 2.配置路径信息
+	// 此处arr一般叫routes
+	var arr = [
+		// {path:'url',component:组件名称}
+		{path:'/home',component:Home},
+		{path:'/news',component:News},
+		{path:'/hot',component:Hot}
+	]
+
+	// 3.创建路由对象
+	var router = new VueRouter({
+		// 配置项
+		// routes:存储路径信息的数组
+		// routes: arr
+		// es6新语法：如果配置项名称与后方配置项名字相同，可以简写
+		// 即===>routes:routes
+		// 可以简写成routes
+		routes: arr
+	})
+
+	var vm = new Vue({
+		el: '#box',
+		data: {
+
+		},
+		// 4.添加路由配置项
+		router: router
+	});
+</script>

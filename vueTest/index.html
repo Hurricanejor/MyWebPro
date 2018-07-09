@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>一级路由配置（合写方法）</title>
+	<script type="text/javascript" src="./src/js/vue.js"></script>
+	<!-- 
+		一级路由配置：
+		1.引入vue-router.js库
+	 -->
+	<script type="text/javascript" src="./src/js/vue-router.js"></script>
+	<style type="text/css">
+		li {
+			list-style-type: none;
+			display: inline;
+			margin: 20px 10px;
+		}
+		a {
+			text-decoration: none;
+		}
+		.show {
+			width: 300px;
+			height: 200px;
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<ul>
+			<li>
+				<router-link to="/home">home</router-link>
+			</li>
+			<li>
+				<router-link to="/news">news</router-link>
+			</li>
+			<li>
+				<router-link to="/hot">hot</router-link>
+			</li>
+		</ul>
+		<div class="show">
+			<router-view></router-view>
+		</div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#box',
+		data: {
+
+		},
+		/*
+		new VueRouter({
+			// 路径信息：成放在数组中
+			routes: [
+				{path:'url',component:'组件'}
+			]
+		})
+		*/
+		router: new VueRouter({
+			// 路径信息
+			routes: [
+				// 路径命名：'/+小写单词'
+				{path: '/',component:{
+					template:'<h2>首页</h2>'
+				}},
+				{path: '/home',component:{
+					template:'<h2>首页</h2>'
+				}},
+				{path: '/news',component:{
+					template:'<h2>新闻</h2>'
+				}},
+				{path: '/hot',component:{
+					template:'<h2>热点</h2>'
+				}},
+				// {path: '/home',component:{
+				// 	template:'<h2>首页</h2>'
+				// }},
+				// {path: '/home',component:{
+				// 	template:'<h2>首页</h2>'
+				// }},
+
+			]
+		})
+	});
+</script>
