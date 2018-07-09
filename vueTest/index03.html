@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>一级路由配置（分写方法）</title>
+	<title>二级路由配置</title>
 	<script type="text/javascript" src="./src/js/vue.js"></script>
 	<!-- 
 		一级路由配置：
@@ -27,6 +27,11 @@
 </head>
 <body>
 	<div id="box">
+
+		<div class="show">
+			<router-view></router-view>
+		</div>
+
 		<ul>
 			<li>
 				<router-link to="/home">home</router-link>
@@ -38,9 +43,6 @@
 				<router-link to="/hot">hot</router-link>
 			</li>
 		</ul>
-		<div class="show">
-			<router-view></router-view>
-		</div>
 	</div>
 
 	<template id="home">
@@ -53,13 +55,20 @@
 			</ul>
 		</div>
 	</template>
+
+	<template id="hot">
+		<div>
+			<h1>Hot</h1>
+			<router-link to='/hot/film'>film</router-link>
+			<router-link to='/hot/tv'>tv</router-link>
+			<!-- <router-link to=''>新闻03</router-link> -->
+			<router-view></router-view>
+		</div>
+	</template>
 </body>
 </html>
 
 <script type="text/javascript">
-	// 1.准备路由所需模块（组件）
-	// 全局Vue下，有extend(),用来注册路由所需的模块（组件）
-	// 模块名称，首字母大写
 	var Home = Vue.extend({
 		template: '#home'
 	});
@@ -69,26 +78,32 @@
 	});
 
 	var Hot = Vue.extend({
-		template: '<h1>hot</h1>'
+		template: '#hot'
 	});
 
 	// 2.配置路径信息
-	// 此处arr一般叫routes
 	var arr = [
-		// {path:'url',component:组件名称}
 		{path:'/home',component:Home},
+		// 二级路由配置
+		// 配置二级路由的路径信息
+		// children:[{path:'url',component:'组件'...}]
 		{path:'/news',component:News},
-		{path:'/hot',component:Hot}
+		{path:'/hot',component:Hot,children:[
+			// 二级路由，路径不能有'/'
+			{path:'',component:{
+				template: '<p>电影：我不是药神</p>'
+			}},
+			{path:'film',component:{
+				template: '<p>电影：我不是药神</p>'
+			}},
+			{path:'tv',component:{
+				template: '<p>电视剧：西部世界</p>'
+			}}
+		]}
 	]
 
 	// 3.创建路由对象
 	var router = new VueRouter({
-		// 配置项
-		// routes:存储路径信息的数组
-		// routes: arr
-		// es6新语法：如果配置项名称与后方配置项名字相同，可以简写
-		// 即===>routes:routes
-		// 可以简写成routes
 		routes: arr
 	})
 
@@ -100,14 +115,7 @@
 		beforeCreate: function(){
 			this.$router.push('/home');
 		},
-		// 4.添加路由配置项
 		router: router
 	});
 
-	// 路由重定向
-	// 1.找到路由对象router
-	// 2.使用push()方法
-	// 3.找到要跳转的页面
-	// router.push('/home');
-	// 也可以使用生命周期函数 100行
 </script>
