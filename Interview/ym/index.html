@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="./src/js/jquery.min.js"></script>
+
+</head>
+<style type="text/css">
+	body {
+		background-color: #FAFAFA;
+	}
+	*{
+		padding:0;
+		margin: 0;
+	}
+	li {
+		list-style-type: none;
+	}
+	a {
+		text-decoration: none;
+		color: red;
+	}
+	.top_section {
+		position: relative;
+		width: 100%;
+		height: auto;
+		background: url(./src/img/BANNER.png) no-repeat;
+		background-size: 100% 100%;
+	}
+	.top_notice {
+		height: 38px;
+		width: 100%;
+		background: rgba(0,0,0,0.12);
+	}
+	.top_notice p {
+		font-family: MicrosoftYaHei Regular;
+		font-size: 16px;
+		color: #FFFFFF;
+		line-height: 38px;
+		text-align: center;
+	}
+	.logo_img {
+		position: absolute;
+		left: 280px;
+		top: 38px;
+	}
+	.logo_img img{
+		width: 120px;
+	}
+	.banner_box {
+		height: 20px;
+		width: 450px;
+		margin: 20px auto;
+	}
+	.banner_box ul {
+		
+	}
+	.banner_box li {
+		list-style-type: none;
+		float: left;
+		width: 20%;
+		margin-left: 20px; 
+	}
+	.banner_box li img {
+		height: 20px;
+	}
+	.cb {
+		clear: both;
+	}
+	.login_box {
+		position: absolute;
+		top: 56px;
+		right: 350px;
+		color: #FFFFFF;
+		font-size: 18px;
+		font-family: MicrosoftYaHei Regular;
+	}
+	.login_box span {
+		margin: 5px;
+	}
+	.banner_selected {
+		background: url(./src/img/banner_selected.png);
+	}
+	.top_switch {
+		width: 200px;
+		height: 51px;
+		margin: 0 auto;
+		margin-top: 300px;
+		
+	}
+	.top_switch ul {
+
+	}
+	.top_switch li {
+		position: relative;
+		list-style-type: none;
+		float: left;
+		width: 25%;
+	}
+	.top_switch img {
+		display: block;
+		margin: 0 auto;
+	}
+	.pos_re {
+		position: relative;
+		bottom: -35px;
+		/*height: 16px;
+		width: 16px;*/
+	}
+	.search_box {
+		width: 780px;
+		height: 65px;
+		margin: 24px auto;	
+		background: url('./src/img/banner_search.png') no-repeat;
+	}
+	.t_search {
+		border: none;
+		background: none;
+		outline: none;
+		padding-left: 15px;
+		height: 65px;
+		line-height: 65px;
+		width: 700px;	
+		color: white;
+		font-size: 18px;
+	}
+	.search_btn {
+		display: block;
+		float: right;
+		margin: 12px 10px;
+	}
+	.banner_keyword {
+		width: 300px;
+		height: 50px;
+		margin: 25px auto;
+		color: white;
+		font-size: 16px;
+	}
+	.banner_keyword li {
+		width: 25%;
+		text-align: center;
+		float: left;
+	}
+
+
+
+	/*三大模块*/
+	.module_classify {
+		width: 1200px;
+		margin: auto;
+		background-color: white;
+	}
+	.classify_title {
+		height: 100px;
+		width: 288px;
+		margin: 45px auto;
+		padding-top: 25px;
+	}
+	.classify_title p {
+		width: 288px;
+		text-align: center;
+		color: #000000;
+		font-family: MicrosoftYaHei Regular;
+		font-size: 32px;
+		border-bottom: 2px solid #AEAEAE;
+	}
+	.classify_title span {
+		display: block;
+		text-align: center;
+		color: #6F6F6F;
+		font-size: 20px;
+		line-height: 40px;
+		font-family: ArialMT Regular;
+	}
+	.classify_small_title {
+		width: 300px;
+		height: 25px;
+		margin: 25px auto;
+		color: white;
+		font-size: 16px;
+	}
+	.classify_small_title li {
+		width: 25%;
+		text-align: center;
+		float: left;
+		color: #000000;
+	}
+	.classify_img_box {
+		margin: auto;
+		padding: 5px 40px;
+	}
+	.classify_img_left {
+		float: left;
+	}
+	.classify_img_top img {
+		margin-right: 17px; 
+	}
+	.classify_img_box img:hover {
+		transition:all 1s ease;
+        transform: translateY(-10%);
+	}
+	.classify_img_bottom img {
+		margin-top: 13px;
+		margin-right: 23px;
+	}
+	.classify_more {
+		width: 847px;
+		margin: 25px auto;
+		color: red;
+		font-size: 18px;
+		padding: 25px 0;
+	}
+	.classify_more span {
+		display: inline-block;
+		width: 372px;
+		height: 2px;
+		background: #CCCCCC;
+		margin: 5px;
+	}
+	.fl {
+		float: left;
+	}
+	.fr {
+		float: right;
+	}
+
+
+	/*精选模块*/
+	.selected_bg {
+
+		width: 100%;
+		height: 230px;
+		background: url('./src/img/selected_bg.png') no-repeat;
+		background-size: 100% 100%;
+	}
+	.selected_title {
+		margin: 0 auto;
+		width: 288px;
+	}
+	.selected_title p {
+		width: 288px;
+		text-align: center;
+		color: #FFFFFF;
+		font-family: MicrosoftYaHei Regular;
+		font-size: 32px;
+		border-bottom: 2px solid #AEAEAE;
+		padding-top:65px;
+	}
+	.selected_title span {
+		display: block;
+		text-align: center;
+		color: #FFFFFF;
+		font-size: 20px;
+		line-height: 40px;
+		font-family: ArialMT Regular;
+	}
+
+
+	/**/
+	.selected_img_box {
+		width: 850px;
+		height: 800px;
+		margin: 0 auto;
+		padding-top: 15px;
+		/*overflow: hidden;*/
+		position: relative;
+	}
+	.selected_img_box li {
+		margin: 15px;
+		float: left;
+		/*width: 33%*/
+		width: 250px;
+	}
+	.selected_img_box li img {
+		width: 250px;
+	}
+	.pop_selected {
+		display: none;
+		width: 250px;
+		margin: 0 15px;
+		overflow: hidden;
+	}	
+	.pop_selected img{
+		position: absolute;
+		margin-top: 15px;
+		width: 250px;
+		opacity: 0.9;
+	}
+	.pop_selected_txt {
+		display: none;
+		position: absolute;
+		top: 250px;
+		left: 28px;
+	}
+	.pop_selected_txt p {
+		color: #FFFFFF;
+		font-size: 24px;
+		line-height: 55px;
+	}
+	.selected_keyword span {
+		margin: 5px;
+		font-size: 18px;
+	}
+	.pop_selected:hover{
+		/*filter: brightness(0.2);*/
+		/*background: url('./src/img/selected_pop.png');*/
+		/*background: rgba(34,59,88,0.5);
+		opacity: 0.5;
+		z-index: 999;
+		position: relative;*/
+		/*position:absolute;
+        left: 0;
+        top:0;
+        width:100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        content: attr(data-text);
+        transition:all 1s ease;
+        transform: translateY(10%);
+        color: #FFF;*/
+	}
+	.selected_underline {
+		height: 1px;
+		width: 219px;
+		background-color: #FFFFFF;
+	}
+	.pop_selected1 img{
+		z-index: 999;
+	}
+	.pop_selected1:hover{
+		position: relative;
+		transition:all 1s ease;
+        transform: translateY(-10%);
+	}
+	.selected_switch {
+		width: 150px;
+		height: 51px;
+		margin: 0 auto;
+		position: relative;
+	}
+	.selected_switch li {
+		list-style-type: none;
+		float: left;
+		width: 50px;
+	}
+	.selected_switch img {
+		display: block;
+		margin: 0 auto;
+	}
+
+
+	.aboutus_bg {
+		margin: 25px 0;
+		width: 100%;
+		height: 150px;
+		background: url('./src/img/aboutus_bg.png') no-repeat;
+		background-size: 100% 100%;
+	}
+	.about_us_content {
+		width: 900px;
+		margin: 10px auto;
+		overflow: hidden;
+	}
+	.aboutus_title {
+		margin: 0 auto;
+		width: 288px;
+	}
+	.aboutus_title p {
+		width: 288px;
+		text-align: center;
+		color: #FFFFFF;
+		font-family: MicrosoftYaHei Regular;
+		font-size: 32px;
+		border-bottom: 2px solid #AEAEAE;
+		padding-top:35px;
+	}
+	.aboutus_title span {
+		display: block;
+		text-align: center;
+		color: #FFFFFF;
+		font-size: 20px;
+		line-height: 40px;
+		font-family: ArialMT Regular;
+	}
+	.about_us_video {
+		/*width: 350px;*/
+		/*height: 450px;*/
+		position: relative;
+		margin: 50px 0;
+	}
+	.player_btn {
+		height: 80px;
+		width: 80px;
+		position: absolute;
+		top: 150px;
+		left: 220px;
+		z-index: 999;
+	}
+	.player_btn img {
+		display: block;
+		height: 80px;
+		width: 80px;
+	}
+	#myVideo {
+		width: 500px;
+	}
+	.about_us_detail {
+		float: left;
+		margin: 50px 0;
+		width: 350px;
+		background: white;
+		padding: 0 20px;
+	}
+	
+	.about_us_detail p {
+		line-height: 35px;
+		font-size: 22px;
+		color: #525252;
+	}
+	.about_us_detail .title {
+		text-align:center;
+		line-height: 80px;
+		font-size: 30px;
+		color: #000000;
+	}
+	.about_us_detail span {
+		display: block;
+		margin: 50px 20px 20px 0;
+		text-align: right;
+		color: red;
+		font-size: 22px;
+	}
+	.about_us_detail span:hover {
+
+	}
+	.about_us_icon_box {
+		overflow: hidden;
+		background: white;
+	}
+	.about_us_icon_box ul {
+		width: 900px;
+		margin: 0 auto;
+	}
+	.about_us_icon_box li {
+		float: left;
+		width: 25%;
+		margin: 20px 0;
+	}
+	.about_us_icon_box li img {
+		display: block;
+		width: 120px;
+		margin: 10px auto;
+	}
+	.about_us_icon_box li p {
+		text-align: center;
+		font-size: 26px;
+	}
+
+	/*底部*/
+	.banner_bottom {
+		background-color: #FFFFFF;
+		width: 100%;
+		margin: 0 auto;
+		margin-top: 20px;
+		overflow: hidden;
+		border-top: 1px solid #4C4C4C;
+	}
+	.bottom_left {
+		width: 58%;
+		float: left;
+		margin: 25px 0;
+	}
+	.bottom_logo {}
+	.bottom_logo img {
+		display: block;
+		float: left;
+		margin: 45px 0 0 350px;
+	}
+	
+	.bottom_href {
+		float: right;
+		width: 350px;
+		margin: 25px 0;
+	}
+	.bottom_href li {
+		width: 50%;
+		float: left;
+		margin: 8px 0;
+		font-size: 24px;
+		text-align: center;
+	}
+	.bottom_right {
+		width: 40%;
+		float: right;
+	}
+	.right_logo_box {
+		height: 115px;
+		width: 115px;
+		float: left;
+		margin: 65px 5px 65px 50px;
+		background-color: #979797;
+	}
+	.bottom_right_cust_service {
+		float: left;
+		margin: 70px 5px;
+	}
+	.bottom_right_title {
+		font-size: 24px;
+		line-height: 50px;
+	}
+
+	.bottom_underline {
+		line-height: 5px;
+		height: 1px;
+		width: 160px;
+		background-color: #000000;
+	}
+	.bottom_tel,
+	.bottom_mail {
+		font-size: 18px;
+		line-height: 30px;
+	}
+</style>
+<body>
+
+	<!-- 头部模块 -->
+	<div class="top_section">
+		<!-- 头部-公告 -->
+		<div class="top_notice">
+			<p>公告：办理会员五折起</p>
+		</div>
+		<!-- 头部-导航栏 -->
+		<div class="top_banner">
+			<!-- LOGO框 -->
+			<div class="logo_img">
+				<img src="./src/img/LOGO.png">
+			</div>
+			<!-- 导航栏 -->
+			<div class="banner_box">
+				<ul>
+					<li><img src="./src/img/banner_shouye.png"></li>
+					<li><img src="./src/img/banner_tupian.png"></li>
+					<li><img src="./src/img/banner_linggan.png"></li>
+					<li><img src="./src/img/banner_huodong.png"></li>
+				</ul>
+			</div>
+			<!-- <div class="cb"></div> -->
+			<!-- 登录注册 -->
+			<div class="login_box">
+				<span id="login">登录</span>
+				<span id="register">注册</span>
+			</div>
+			
+			<!-- 头部-切换 -->
+			<div class="top_switch">
+				<ul>
+					<li class="long_img"><img src="./src/img/banner_selected.png"></li>
+					<li class="pos_re"><img src="./src/img/banner_unchecked.png"></li>
+					<li class="pos_re"><img src="./src/img/banner_unchecked.png"></li>
+					<li class="pos_re"><img src="./src/img/banner_unchecked.png"></li>
+				</ul>
+			</div>
+			
+			<!-- 头部-搜索框 -->
+			<div class="search_box">
+				<input class="t_search" type="text" name="" placeholder="请输入搜索内容" />
+				<img class="search_btn" src="./src/img/search.png">
+			</div>
+
+			<!-- 头部-关键字 -->
+			<div class="banner_keyword">
+				<ul>
+					<li>花瓣</li>
+					<li>冬天</li>
+					<li>雪景</li>
+					<li>秋天</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- 三大模块 -->
+	<!-- 分类模块 -->
+	<div class="module_classify">
+		<!-- 三大模块-标题 -->
+		<div class="classify_title">
+			<p>分类</p><span>classification</span>
+		</div>
+		
+		<!-- 三大模块-内容 -->
+		<div class="classify_content">
+			<div class="classify_small_title">
+				<ul>
+					<li>花瓣</li>
+					<li>冬天</li>
+					<li>雪景</li>
+					<li>秋天</li>
+				</ul>
+			</div>
+			<div class="classify_img_box">
+				<div class="classify_img_left">
+					<div class="classify_img_top">
+						<img src="./src/img/classify_img1.png">
+						<img src="./src/img/classify_img2.png">
+						<img src="./src/img/classify_img3.png">
+					</div>
+					<div class="classify_img_bottom">
+						<img src="./src/img/classify_img4.png">
+						<img src="./src/img/classify_img5.png">
+						<img src="./src/img/classify_img6.png">
+					</div>
+				</div>
+				<div class="classify_img_right">
+					<img src="./src/img/classify_img7.png">
+				</div>
+			</div>
+			<div class="classify_more">
+				<p><span class=""></span><a href="#"> 查看更多 </a><span class=""></span></p>
+			</div>
+		</div>
+	</div>
+
+	<!-- 精选模块 -->
+	<div class="module_selected">
+		<!-- 精选模块-标题 -->
+		<div class="selected_bg">
+			<div class="selected_title">
+				<p>精选</p><span>Featured</span>
+			</div>
+		</div>
+		<div class="selected_img_box">
+			<div class="pop_selected">
+				<img src="./src/img/selected_pop.png">
+			</div>
+			<div class="pop_selected_txt">
+				<p>猫头鹰</p>
+				<p class="selected_underline"></p>
+				<p class="selected_keyword"><span>动物</span><span>野外</span><span>环境</span><span>森林</span></p>
+			</div>
+			<ul>
+				<li class=""><img src="./src/img/selected_img1.png"></li>
+				<li class="pop_selected1"><img src="./src/img/selected_img2.png"></li>
+				<li><img src="./src/img/selected_img3.png"></li>
+				<li><img src="./src/img/selected_img4.png"></li>
+				<li><img src="./src/img/selected_img5.png"></li>
+				<li><img src="./src/img/selected_img6.png"></li>
+			</ul>
+		</div>
+		<div class="selected_switch">
+			<ul>
+				<li><img src="./src/img/selected_sel.png"></li>
+				<li class="pos_re"><img src="./src/img/selected_unchecked.png"></li>
+				<li class="pos_re"><img src="./src/img/selected_unchecked.png"></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- 关于我们 -->
+	<div class="module_aboutus">
+		<!-- 关于我们模块-标题 -->
+		<div class="aboutus_bg">
+			<div class="aboutus_title">
+				<p>关于我们</p><span>about us</span>
+			</div>
+		</div>
+		<div class="about_us_content">
+			<div class="about_us_video fl">
+				<div class="player_btn"><img src="./src/img/player_btn.png"></div>
+				<video id="myVideo" poster="./src/img/about_us_vedio.png">
+					<source src="./src/img/movie.ogg" type="video/ogg">
+				</video>
+			</div>
+			<div class="about_us_detail">
+				<p class="title">我们的介绍</p>
+				<p style="text-indent: 10pt;">XXX网站是中国免费 素材最多的网站之一，拥有800多万张免费素材。提供：矢量图、psd源文件、图片素材、网页素材、XXX网站是中国免费素材最多的网站之一，XXX网站是中国免费素材最多的网站之一. </p>
+				<span>查看更多</span>
+			</div>
+		</div>
+		<div class="about_us_icon_box">
+			<ul>
+				<li><img src="./src/img/about_us_icon.png" /><p>100%正版</p></li>
+				<li><img src="./src/img/about_us_icon.png" /><p>价格低廉</p></li>
+				<li><img src="./src/img/about_us_icon.png" /><p>海量图库</p></li>
+				<li><img src="./src/img/about_us_icon.png" /><p>发票支持</p></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- 底部 -->
+	<div class="banner_bottom">
+		<div class="bottom_left">
+			<div class="bottom_logo">
+				<img src="./src/img/bottom_logo.png">
+			</div>
+			<div class="bottom_href">
+				<ul>
+					<li>关于我们</li>
+					<li>价格体系</li>
+					<li>服务条款</li>
+					<li>联系我们</li>
+					<li>版权说明</li>
+					<li>常见问题</li>
+				</ul>
+			</div>
+		</div>
+		<div class="bottom_right">
+			<div class="right_logo_box"></div>
+			<div class="bottom_right_cust_service">
+				<p class="bottom_right_title">在线客服</p>
+				<p class="bottom_underline"></p>
+				<p class="bottom_tel">400-26441</p>
+				<p class="bottom_mail">461131654@qq.com</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	$('.top_switch li').hover(function(){
+		if ($(this).hasClass('pos_re')) {
+			$(this).removeClass('pos_re').addClass('long_img');
+			$(this).siblings().removeClass('long_img').addClass('pos_re').find('img').attr('src','./src/img/banner_unchecked.png');
+			$(this).find('img').attr('src','./src/img/banner_selected.png');
+		}
+	});
+
+	$('.selected_switch li').hover(function(){
+		if ($(this).hasClass('pos_re')) {
+			$(this).removeClass('pos_re').addClass('long_img');
+			$(this).siblings().removeClass('long_img').addClass('pos_re').find('img').attr('src','./src/img/selected_unchecked.png');
+			$(this).find('img').attr('src','./src/img/selected_sel.png');
+		}
+	});
+
+	var myVideo=document.getElementById("video"); 
+	$('.player_btn').on('click',function(){
+
+		$('#myVideo')[0].play(); 
+	});
+
+	$('.selected_img_box li:first').mouseover(function(){
+		$(".pop_selected, .pop_selected_txt").css('display','block');
+	})
+</script>

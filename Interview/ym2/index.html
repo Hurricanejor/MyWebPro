@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			li {
+				list-style: none;
+				line-height: 75px;
+			}
+			.top_box {
+				background: url(img/header.png) no-repeat;
+				background-size: 100%;
+				width: 100%;
+				height: 700px;
+			}
+			.notice {
+				color: white;
+				font-size: 12px;
+				background: url(img/rectangle-3-copy.png) no-repeat;
+				text-align: center;
+				height: 18px;
+			}
+			.notice span {
+				display: block;
+				position: absolute;
+				right: 300px;
+				top: 0;
+			}
+			#top_banner{
+				height: 75px;
+				width: 100%;
+				position: absolute;
+				top: 0;
+			}
+			#top_banner img {
+				display: block;
+				float: left;
+				width: 50px;
+				/*margin: ;*/
+			}
+			.banner_ul{
+				float: left;
+				width: 900px;
+				height: 75px;
+				margin-left: 50px;
+			}
+			.banner_ul li{
+				list-style: none;
+				float: left;
+				width: 16%;
+				color: white;
+				text-align: center;
+			}
+			.banner_ul img {
+				display: block;
+				margin: 5px 25px;
+			}
+			#login_box{
+				float: right;
+			}
+			#login_box ul {
+				width: 200px;
+				height: 75px;
+			}
+			#login_box li{
+				
+				color: white;
+				text-align: center;
+				float: left;
+				width: 50%;
+				cursor: pointer;
+			}
+			#login_box img{
+				width: 88px;
+				display: block;
+				margin: 20px 0;
+			}
+			
+			#img_wrap{
+				width: 100%;
+				background-color: #f7f7f7;
+				padding: 25px 0;
+			}
+			#img_box {
+				overflow: hidden;
+				width: 1200px;
+				margin: auto;
+				
+			}
+			#img_box li {
+				width: 33%;
+				float: left;
+				margin: 15px 0;
+			}
+			#black_box {
+				background-color: black;
+				width: 333px;
+				height: 356px;
+				position: relative;
+				margin: auto;
+			}
+			.white_box {
+				position: absolute;
+				top: 10px;
+				left: 10px;
+				background-color: white;
+				width: 313px;
+				height: 336px;
+			}
+			.white_box img {
+				width: 292px;
+			}
+			#img_box li:hover{
+				/*position: relative*/
+				transition:all 1s ease;
+		        transform: translateY(-10%);
+			}
+			#black_box img{
+				position: absolute;
+				top: 10px;
+				left: 10px;
+			}
+			#people_info_box {
+				width: 313px;
+				height: 35px;
+				margin: 12px auto;
+			}
+			#people_info_box img{
+				width: 25px;
+				display: block;
+				float: left;
+				margin: 5px;
+			}
+			#people_info_box_center {
+				float: left;
+			}
+			#people_info_box_center p {
+				line-height: 17px;
+			}
+			.p_right {
+				color: #bdbdbd;
+				float: right;
+				line-height: 35px;
+			}
+			.font_color {
+				color: #BDBDBD;
+			}
+			.title {
+				text-indent: 30px;
+				color: #a6a5a5;
+				font-size: 24px;
+			}
+			#img_box2 {
+				width: 1200px;
+				margin: 30px auto;
+				overflow: hidden;
+			}
+			#img_box2 img{
+				display: block;
+				width: 230px;
+				margin: 0 auto;
+			}
+			#img_detail {
+				/*box-sizing: border-box;*/
+				background-color: white;
+				margin: 0 5px;
+			}
+			#img_detail p {
+				line-height: 20px;
+				/*width: 270px;*/
+				margin: auto;
+				padding: 5px;
+			}
+			.font_bord {
+				font-weight: bold;
+			}
+			#img_box2 li {
+				width: 20%;
+				margin: 20px 30px;
+				float: left;
+				border-radius: 10px 10px 0 0;
+			}
+			.shadow {
+				box-shadow: 0px 0px 15px #BDBDBD;
+			}
+			#banner_bottom {
+				height: 580px;
+				background-color: black;
+			}
+			#banner_bottom_top{
+				width: 80%;
+				height: 55%;
+				margin: auto;
+				border-bottom: 1px solid #666666;
+			}
+			.ong_img {
+				width: 71px;
+			}
+			#banner_bottom {
+				color: white;
+				
+			}
+			#banner_bottom li {
+				height: 50px;
+			}
+			.fl{
+				float: left;
+			}
+			
+			#one, #two {
+				margin: 60px 0;
+				width: 25%;
+			}
+			#one {
+				/*margin-left: 180px;*/
+			}
+			#one ul, #two ul {
+				text-align: left;
+				font-weight: bold;
+			}
+			#one li, #two li {
+				font-weight: 100;
+			}
+			#banner_bottom_bottom {
+				width: 80%;
+				margin: auto;
+				overflow: hidden;
+			}
+			.connect_us {
+				overflow: hidden;
+			}
+			.connect_us li{
+				margin: 25px 0;
+				width: 25%;
+			}
+			.connect_us span {
+				display: block;
+			}
+			.connect_us img {
+				display: inline-block;
+				margin: 25px 3px;
+			}
+			.cb {
+				clear: both;
+			}
+			#bottom_input{
+				po
+				margin: 20px 0;
+				height: 45px;
+				outline: none;
+				border: none;
+				width: 100%;
+				border-radius: 3px;
+				text-indent: 10pt;
+			}
+			.pos_re {
+				position: relative;
+			}
+			.icon_enter {
+				display: block;
+				position: absolute;
+				right: 10px;
+				top: 46px;
+				color: #BDBDBD;
+				cursor: pointer;
+			}
+			#two img{
+				cursor: pointer;
+			}
+			#banner_bottom_bottom div{
+				margin: 35px 0;
+			}
+			#foot_box{
+				width: 80%;
+				margin: auto;
+				overflow: hidden;
+			}
+			.footer {
+				float: left;
+				font-size: 14px;
+				color: white;
+			}
+			.flag {
+				display: block;
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="top_box">
+			<div id="top_banner">
+				<p class="notice">FREE SHIPPING ON ORDERS OVER $75<span>x</span></p>
+				<ul class="banner_ul">
+					<li><img src="img/rg-white-copy.png" class="logo"/></li>
+					<li>EXPLORE</li>
+					<li>ARTISTS</li>
+					<li>NEWS</li>
+					<li>EVENTS</li>
+					<li>RGTV</li>
+				</ul>
+				<div id="login_box">
+					<ul>
+						<li>Login</li>
+						<li><img src="img/register-copy.png"/></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+		<div id="img_wrap">
+			
+		
+		<div id="img_box">
+			<p class="title">Explore Art</p>
+			<ul>
+				<li>
+					<div id="black_box">
+						<div class="white_box">
+							<img src="img/picture1.png"/>
+						</div>
+					</div>
+					<div id="people_info_box">
+						<img src="img/picture_photo.png"/>
+						<div id="people_info_box_center">
+							<p>Christopher Roberts</p>
+							<p class="font_color">Photographer</p>
+						</div>
+						<p class="p_right">39 mins ago</p>
+					</div>
+				</li>
+				<li>
+					<div id="black_box">
+						<div class="white_box">
+							<img src="img/picture2.png"/>
+						</div>
+					</div>
+					<div id="people_info_box">
+						<img src="img/picture_photo.png"/>
+						<div id="people_info_box_center">
+							<p>Robert Curry</p>
+							<p class="font_color">Painter</p>
+						</div>
+						<p class="p_right">29 mins ago</p>
+					</div>
+				</li>
+				<li>
+					<div id="black_box">
+						<div class="white_box">
+							<img src="img/picture3.png"/>
+						</div>
+					</div>
+					<div id="people_info_box">
+						<img src="img/picture_photo.png"/>
+						<div id="people_info_box_center">
+							<p>Joseph Strickland</p>
+							<p class="font_color">Photographer</p>
+						</div>
+						<p class="p_right">10 mins ago</p>
+					</div>
+				</li>
+				<li>
+					<div id="black_box">
+						<div class="white_box">
+							<img src="img/picture4.png"/>
+						</div>
+					</div>
+					<div id="people_info_box">
+						<img src="img/picture_photo.png"/>
+						<div id="people_info_box_center">
+							<p>Lin Hui</p>
+							<p class="font_color">Calligrapher</p>
+						</div>
+						<p class="p_right">35 mins ago</p>
+					</div>
+				</li>
+				<li>
+					<div id="black_box">
+						<div class="white_box">
+							<img src="img/picture5.png"/>
+						</div>
+					</div>
+					<div id="people_info_box">
+						<img src="img/picture_photo.png"/>
+						<div id="people_info_box_center">
+							<p>Scott Welch</p>
+							<p class="font_color">Photographer</p>
+						</div>
+						<p class="p_right">41 mins ago</p>
+					</div>
+				</li>
+				<li>
+					<div id="black_box">
+						<div class="white_box">
+							<img src="img/picture6.png"/>
+						</div>
+					</div>
+					<div id="people_info_box">
+						<img src="img/picture_photo.png"/>
+						<div id="people_info_box_center">
+							<p>Amelia Singleton</p>
+							<p class="font_color">Painter</p>
+						</div>
+						<p class="p_right">5 mins ago</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		</div>
+		
+		<div id="img_box2">
+			<p class="title">Explore New Artists</p>
+			<ul>
+				<li>
+					<img src="img/picture21.png"/>
+					<div id="img_detail"  class="shadow">
+						<p class="font_bord">Christopher Roberts</p>
+						<p class="font_color">Photographer</p>
+					</div>
+				</li>
+				<li>
+					<img src="img/picture22.png"/>
+					<div id="img_detail">
+						<p class="font_bord">Lin Hui</p>
+						<p class="font_color">Calligrapher</p>
+					</div>
+				</li>
+				<li>
+					<img src="img/picture23.png"/>
+					<div id="img_detail">
+						<p class="font_bord">Robert Curry</p>
+						<p class="font_color">Painter</p>
+					</div>
+				</li>
+				<li>
+					<img src="img/picture24.png"/>
+					<div id="img_detail">
+						<p class="font_bord">Lamaar Williams</p>
+						<p class="font_color">Photographer</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	
+		<div id="banner_bottom">
+			<div id="banner_bottom_top">
+				<div id="one" class="fl">
+					<img src="img/rg-white-copy.png" class="ong_img"/>
+				</div>
+				<div id="two" class="fl">
+					<ul>COMPANY
+						<li>Terms & Conditions</li>
+						<li>Privacy Policy</li>
+						<li>Artwork Handing</li>
+						<li>FAQ</li>
+					</ul>
+				</div>
+				<div id="two" class="fl">
+					<ul>ABOUT
+						<li>Company Team</li>
+						<li>Artists</li>
+						<li>Press</li>
+						<li>Stores</li>
+					</ul>
+				</div>
+				<div id="two" class="fl">
+					<ul>RESOURCES
+						<li>Events</li>
+						<li>Advertisement</li>
+					</ul>
+				</div>
+			</div>
+		
+			<div id="banner_bottom_bottom">
+				<div id="one" class="fl">
+					<ul>CONTANCT US
+						<li>support@relaygallery.com</li>
+					</ul>
+				</div>
+				<div id="two" class="fl">
+					<ul>VISIT US
+						<li>LangQingYuanGuoJi BanGongShi</li>
+						<li>Beijing,China</li>
+					</ul>
+				</div>
+				<div id="two" class="connect_us fl four_img">
+						<span>CONNECT WITH US</span>
+						<img src="img/home_11.png"/>
+						<img src="img/home_13.png"/>
+						<img src="img/home_15.png"/>
+						<img src="img/home_17.png"/>
+				</div>
+				<div id="two" class="fl">
+					<ul class="pos_re">SIGN UP TO OUR NEWSLETTER
+						<li><input type="text" placeholder="Your email address" name="botton_input" id="bottom_input" value="" /></li>
+						<span class="icon_enter">></span>
+					</ul>
+				</div>
+			</div>
+			<div class="cb">
+				
+			</div>
+			<div id="foot_box">
+				<p class="footer">&copy;2018 Relay Gallery.All rights reserved.</p>
+				<span class="flag"><img src="img/home_43.png"/></span>
+			</div>
+		</div>
+		
+		
+	</body>
+</html>
+<script type="text/javascript">
+	$(".notice span").on('click',function(){
+		$(".notice").hide();
+	});
+	
+	$('#img_box2 li').hover(function(){
+		$(this).find('div').addClass('shadow');
+		$(this).siblings().find('div').removeClass('shadow');
+	})
+</script>
