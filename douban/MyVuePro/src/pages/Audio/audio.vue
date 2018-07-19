@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<Myheader txt='书影音'>
-			<img src="../../assets/img/img2.png" class="leftImg" slot='left' />
-			<img src="../../assets/img/img1.png" class="rightImg" slot='rigth' />
+			<img src="../../assets/img/ic_group_search.png" class="leftImg" slot='left' />
+			<img src="../../assets/img/ic_chat_green.png" class="rightImg" slot='rigth' />
 		</Myheader>
 		<div class="nav">
 			<router-link to="/audio/movie">电影</router-link>

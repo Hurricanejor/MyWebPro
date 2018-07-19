@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<Myheader txt='我的'>
-			<img src="../../assets/img/img2.png" class="leftImg" slot='left' />
-				<img src="../../assets/img/img1.png" class="rightImg" slot='rigth' />
+			<!-- <img src="../../assets/img/img2.png" class="leftImg" slot='left' /> -->
+				<img src="../../assets/img/ic_settings.png" class="rightImg" slot='rigth' />
 		</Myheader>
 		<Cell title='提醒' :bol='false'>
 			<img src="../../assets/img/img_lights.png" slot="icon" class="cell_img" />
