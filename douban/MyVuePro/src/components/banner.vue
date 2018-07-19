@@ -64,7 +64,7 @@
 				delay: That.delay,
 				effect: That.effect
 			});
-			console.log(mySwiper);
+			// console.log(mySwiper);
 		}
 	}
 </script>

@@ -51,6 +51,6 @@
 		color: #666;
 	}
 	.itemWrap .active {
-		color: #DE3E29;
+		color: #42BD56;
 	}
 </style>
