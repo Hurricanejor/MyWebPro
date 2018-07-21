@@ -20,7 +20,7 @@
 			</div>
 		</Banner>
 		<Cell title='热点' :bol='true'></Cell>
-		<List v-for="item in arr" :author='item.target.author.name' :url='item.target.cover_url'>
+		<List v-for="item in arr" :key="item.id" :author='item.target.author.name' :url='item.target.cover_url'>
 			<h4 slot="title">{{ item.title }}</h4>
 			<p slot="desc">{{ item.target.desc }}</p>
 			<!-- <span slot="author">{{ item.target.author.name }}</span> -->
