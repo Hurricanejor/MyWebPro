@@ -20,6 +20,7 @@ const app=express()
 var apiRoutes=express.Router()
 app.use('/api',apiRoutes)
 var homeData=require('../src/data/homeData.json')
+var movieList=require('../src/data/movieList.json')
 
 
 
@@ -57,6 +58,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       app.get('/homeData',function (req,res) {
         res.json({
           data:homeData
+        })
+      }),
+      app.get('/movieList',function (req,res) {
+        res.json({
+          data:movieList
         })
       })
     }

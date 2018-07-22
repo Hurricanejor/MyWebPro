@@ -22,7 +22,8 @@
 	.listWrap {
 		padding: 20px;
 		text-align: left;
-		height: 150px;
+		/*height: 150px;*/
+		overflow: hidden;
 		border-bottom: 1px solid #ccc;
 	}
 	.listWrap img {
@@ -47,5 +48,8 @@
 		width: 20px;
 		height: 1px;
 		background-color: #eee;
+	}
+	.listWrap:last-child {
+		margin-bottom: 64px;
 	}
 </style>

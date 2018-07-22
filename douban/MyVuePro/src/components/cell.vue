@@ -45,6 +45,12 @@
 		top: 6px;
 		right: 8px;
 	}
+	.cell_right_txt {
+		color: #999;
+		position: absolute;
+		top: 0;
+		right: 30px;
+	}
 	.hot {
 		border-bottom: none;
 	}

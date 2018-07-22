@@ -53,7 +53,7 @@
 			fn(){
 				this.axios.get('/api/homeData').then((response)=>{
 					this.arr = response.data.data.recommend_feeds;
-		        	console.log(this.arr);
+		        	// console.log(this.arr);
 				});
 
 

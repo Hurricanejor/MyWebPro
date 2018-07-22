@@ -10,11 +10,11 @@ import Audio from '../pages/Audio/audio.vue'
 import Group from '../pages/Group/group.vue'
 import Mine from '../pages/Mine/mine.vue'
 
-import Movie from '../components/movie.vue'
-import Tv from '../components/tv.vue'
-import Read from '../components/read.vue'
-import City from '../components/city.vue'
-import Music from '../components/music.vue'
+import Movie from '../pages/Audio/movie.vue'
+import Tv from '../pages/Audio/tv.vue'
+import Read from '../pages/Audio/read.vue'
+import City from '../pages/Audio/city.vue'
+import Music from '../pages/Audio/music.vue'
 
 
 
@@ -37,6 +37,10 @@ export default new Router({
       name: 'Audio',
       component: Audio,
       children: [
+      {
+        path: '',
+        component: Movie
+      },
       {
         path: 'movie',
         component: Movie
