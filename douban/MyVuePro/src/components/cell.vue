@@ -40,9 +40,9 @@
 		right: 8px;
 	}
 	.cell_right_img {
-		width: 25px;
+		width: 20px;
 		position: absolute;
-		top: 6px;
+		top: 10px;
 		right: 8px;
 	}
 	.cell_right_txt {
@@ -50,6 +50,7 @@
 		position: absolute;
 		top: 0;
 		right: 30px;
+		font-size: 12px;
 	}
 	.hot {
 		border-bottom: none;

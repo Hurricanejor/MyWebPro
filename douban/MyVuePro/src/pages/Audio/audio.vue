@@ -6,7 +6,7 @@
 		</Myheader>
 		<div class="nav">
 			<span @click="nav_index=1">
-				<router-link to="/audio/movie" :class="{nav_active:nav_index==1}">电影</router-link>
+				<router-link to="/audio/movie1" :class="{nav_active:nav_index==1}">电影</router-link>
 			</span>
 			<span @click="nav_index=2">
 				<router-link to="/audio/tv" :class="{nav_active:nav_index==2}">电视</router-link>

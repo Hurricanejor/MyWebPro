@@ -3,8 +3,9 @@
 		<div class="swiper-container">
 			<!-- 滚动主体 -->
 			<div class="swiper-wrapper">
-				<div class="swiper-slide" v-for="item in arr" :key="item.id">
-					<img class="movie_img" :src="item.target.cover_url" />
+				<!-- <div class="swiper-slide"> -->
+					<!--  v-for="item in arr" :key="item.id" -->
+					<!-- <img class="movie_img" :src="item.target.cover_url" />
 					<p class="movie_title">{{ item.title }}</p>
 					<p class="movie_score">
 						<span>
@@ -14,8 +15,9 @@
 							<img class="star_img" src="../../../assets/img/star_full.png" />
 							<img class="star_img" src="../../../assets/img/star_full.png" />
 						</span> {{ item.score }}
-					</p>
-				</div>
+					</p> -->
+					<slot name="slide_box"></slot>
+				<!-- </div> -->
 				<div class="swiper-slide">
 					<div class="more">
 						<p>全部</p>
@@ -39,7 +41,28 @@
 	import Swiper from "../../../../static/swiper.js"
 
 	export default {
-		props: ["movietitle","moviescore","url"],
+		props: {
+			movietitle: {
+				type: String,
+				default: ""
+			},
+			moviescore: {
+				type: String,
+				default: ""
+			},
+			url: {
+				type: String,
+				default: ""
+			},
+			id: {
+				type: String,
+				default: ""
+			},
+			slidesPerColumn: {
+				type: Number,
+				default: 1
+			}
+		},
 		data: function(){
 			return {
 				arr:[],
@@ -53,17 +76,20 @@
 			fn(){
 				this.axios.get('/api/movieList').then((response)=>{
 					this.arr = response.data.data.recommend_feeds;
-		        	console.log(this.arr);
+		        	// console.log(this.arr);
 		        	this.num = this.arr.length;
-		        	console.log(this.num);
+		        	// console.log(this.num);
 				});
 			}
 		},
 		mounted: function(){
+			var That = this;
+			console.log(That.slidesPerColumn);
 
 			var mySwiper = new Swiper ('.swiper-container',{
 				direction: "horizontal",
 				slidesPerView : 3,
+				// slidesPerColumn: That.slidesPerColumn,
 				loop: false,
 				freeMode : true,
 				freeModeMomentum : false,

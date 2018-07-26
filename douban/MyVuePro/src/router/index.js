@@ -10,7 +10,9 @@ import Audio from '../pages/Audio/audio.vue'
 import Group from '../pages/Group/group.vue'
 import Mine from '../pages/Mine/mine.vue'
 
-import Movie from '../pages/Audio/movie.vue'
+// import Movie from '../pages/Audio/movie.vue'
+import Movie1 from '../pages/Audio/movie1.vue'
+
 import Tv from '../pages/Audio/tv.vue'
 import Read from '../pages/Audio/read.vue'
 import City from '../pages/Audio/city.vue'
@@ -39,11 +41,15 @@ export default new Router({
       children: [
       {
         path: '',
-        component: Movie
+        component: Movie1
       },
-      {
-        path: 'movie',
-        component: Movie
+      // {
+      //   path: 'movie',
+      //   component: Movie
+      // },
+       {
+        path: 'movie1',
+        component: Movie1
       },
       {
         path: 'tv',
