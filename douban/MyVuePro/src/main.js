@@ -5,9 +5,15 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueLazyLoad from 'vue-lazyload'
+
 Vue.use(VueAxios, axios)
 Vue.prototype.$axios = axios; 
 Vue.config.productionTip = false
+
+Vue.use(VueLazyLoad,{
+	loading: "./static/loading-svg/loading-bubbles.svg"
+});
 
 /* eslint-disable no-new */
 new Vue({

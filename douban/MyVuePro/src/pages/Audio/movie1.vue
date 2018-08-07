@@ -18,7 +18,7 @@
 		<Movielist1>
 			<div v-for="item in arr" :key="item.id" class="swiper-slide" slot="slide_box">
 				<div>
-					<img class="movie_img" :src="item.target.cover_url" />
+					<img class="movie_img" v-lazy="item.target.cover_url" />
 					<p class="movie_title">{{ item.title }}</p>
 					<p class="movie_score">
 						<span>
