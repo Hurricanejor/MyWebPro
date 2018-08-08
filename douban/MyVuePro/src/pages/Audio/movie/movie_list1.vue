@@ -19,11 +19,12 @@
 					<slot name="slide_box"></slot>
 				<!-- </div> -->
 				<div class="swiper-slide">
-					<div class="more">
+					<!-- <div class="more">
 						<p>全部</p>
 						<div class="underline"></div>
 						<p>{{ num }}部</p>
-					</div>
+					</div> -->
+					<slot name="more"></slot>
 				</div>
      		</div>
 			<!-- 滚动条 -->
@@ -77,7 +78,7 @@
 				this.axios.get('/api/movieList').then((response)=>{
 					this.arr = response.data.data.recommend_feeds;
 		        	// console.log(this.arr);
-		        	this.num = this.arr.length;
+		        	// this.num = this.arr.length;
 		        	// console.log(this.num);
 				});
 			}

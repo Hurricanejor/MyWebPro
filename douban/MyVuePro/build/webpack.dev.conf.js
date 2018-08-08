@@ -23,6 +23,8 @@ var homeData=require('../src/data/homeData.json')
 var movieList=require('../src/data/movieList.json')
 var movieList1=require('../src/data/movieList2.json')
 var movieList2=require('../src/data/movieList3.json')
+var in_movieList=require('../src/data/interestedList.json')
+var tvList=require('../src/data/tvList.json')
 
 
 
@@ -75,6 +77,16 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       app.get('/movieList3',function (req,res) {
         res.json({
           data:movieList2
+        })
+      }),
+      app.get('/interestedList',function (req,res) {
+        res.json({
+          data:in_movieList
+        })
+      }),
+       app.get('/tvList',function (req,res) {
+        res.json({
+          data:tvList
         })
       })
     }

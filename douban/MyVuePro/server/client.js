@@ -1,7 +1,7 @@
 let http = require("http");
 let util = require("util");
 
-http.get("http://m.douban.com/movie/comedy",(res)=>{
+http.get("http://book.douban.com/j/home/ebooks?user_id=",(res)=>{
 	let data = "";
 	res.on("data",(chunk)=>{
 		data += chunk;

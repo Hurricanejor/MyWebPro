@@ -10,7 +10,7 @@
 		</Cell>
 		<!-- <Movielist  class="swiper-container" v-for="item in arr" :key="item.id">
 				<div class="swiper-slide" slot="swiper_box">
-					<img :src="item.target.cover_url">
+					<img v-lazy="item.target.cover_url">
 					<p class="movie_title">{{ item.title }}</p>
 					<p>{{ item.score }}</p>
 				</div>
@@ -34,13 +34,23 @@
 
 				<!-- 修改2：增加movie_cell组件 -->
 				<moviecell :title="item.title" :score="item.score">
-					<!-- <img slot="movie_img" class="movie_img" :src="item.target.cover_url" /> -->
+					<!-- <img slot="movie_img" class="movie_img" v-lazy="item.target.cover_url" /> -->
 					<!-- 修改3：图片懒加载 -->
 					<img slot="movie_img" class="movie_img" v-lazy="item.target.cover_url" />
 				</moviecell>
+
 			</div>
+
+			<!-- 话题模块 -->
 			<div slot="movie_subject">
 				<img src="https://img3.doubanio.com/view/dale-online/dale_ad/public/02c3f26e99f2d4a.jpg">
+			</div>
+			
+			<!-- 更多 -->
+			<div class="more" slot="more">
+				<p>全部</p>
+				<div class="underline"></div>
+				<p>{{ arr.length }}部</p>
 			</div>
 		</Movielist1>
 		
@@ -55,7 +65,7 @@
 			<div v-for="item in arr2" :key="item.id" class="swiper-slide" slot="slide_box">
 				<!-- <div> -->
 					<!-- 修改1 -->
-					<!-- <img class="movie_img" :src="item.target.cover_url" />
+					<!-- <img class="movie_img" v-lazy="item.target.cover_url" />
 					<p class="movie_title">{{ item.title }}</p>
 					<p class="movie_score">
 						<span>
@@ -69,7 +79,7 @@
 					
 					<!-- 修改2 -->
 					<moviecell :title="item.title" :score="item.score">
-						<!-- <img slot="movie_img" class="movie_img" :src="item.target.cover_url" /> -->
+						<!-- <img slot="movie_img" class="movie_img" v-lazy="item.target.cover_url" /> -->
 						<!-- 修改3：图片懒加载 -->
 						<img slot="movie_img" class="movie_img" v-lazy="item.target.cover_url" />
 					</moviecell>
@@ -77,6 +87,13 @@
 			</div>
 			<div slot="movie_subject">
 				<img src="https://img3.doubanio.com/img/files/file-1531663680-1.jpg" />
+			</div>
+
+			<!-- 更多 -->
+			<div class="more" slot="more">
+				<p>全部</p>
+				<div class="underline"></div>
+				<p>{{ arr2.length }}部</p>
 			</div>
 		</Movielist1>
 
@@ -91,7 +108,7 @@
 			<div v-for="item in arr3" :key="item.id" class="swiper-slide" slot="slide_box">
 				<!-- <div> -->
 					<!-- 修改1 -->
-					<!-- <img class="movie_img" :src="item.target.cover_url" />
+					<!-- <img class="movie_img" v-lazy="item.target.cover_url" />
 					<p class="movie_title">{{ item.title }}</p>
 					<p class="movie_score">
 						<span>
@@ -107,15 +124,30 @@
 				<!-- 修改2 -->
 				<!-- 修改2 -->
 				<moviecell :title="item.title" :score="item.score">
-					<!-- <img slot="movie_img" class="movie_img" :src="item.target.cover_url" /> -->
+					<!-- <img slot="movie_img" class="movie_img" v-lazy="item.target.cover_url" /> -->
 					<!-- 修改3：图片懒加载 -->
 					<img slot="movie_img" class="movie_img" v-lazy="item.target.cover_url" />
 				</moviecell>
 			</div>
+
+			<!-- 更多 -->
+			<div class="more" slot="more">
+				<p>全部</p>
+				<div class="underline"></div>
+				<p>{{ arr3.length }}部</p>
+			</div>
 		</movielist1>
 
 		<!-- 你可能感兴趣 -->
-		<Interested></Interested>
+		<cell :bol="false" title="你可能感兴趣">
+			<div slot="cell_right">
+				<span class="cell_right_txt">全部</span>
+				<img src="../../assets/img/img_right.png" class="cell_right_img" />
+			</div>
+		</cell>
+		<Interested>
+			
+		</Interested>
 
 		
 	</div>
@@ -140,7 +172,8 @@
 			return {
 				arr:[],
 				arr2:[],
-				arr3:[]
+				arr3:[],
+				// num: 1
 			}
 		},
 		created: function(){
@@ -150,15 +183,18 @@
 			fn(){
 				this.axios.get('/api/movieList').then((response)=>{
 					this.arr = response.data.data.recommend_feeds;
-		        	console.log(this.arr);
+					// this.num = this.arr.length;
+		        	// console.log(this.arr);
 				});
 				this.axios.get('/api/movieList2').then((response)=>{
 					this.arr2 = response.data.data.recommend_feeds;
-		        	console.log(this.arr);
+					// this.num = this.arr2.length;
+		        	// console.log(this.arr);
 				});
 				this.axios.get('/api/movieList3').then((response)=>{
 					this.arr3 = response.data.data.recommend_feeds;
-		        	console.log(this.arr);
+					// this.num = this.arr2.length;
+		        	// console.log(this.arr);
 				});
 			}
 		}

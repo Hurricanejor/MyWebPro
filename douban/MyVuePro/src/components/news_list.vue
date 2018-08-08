@@ -27,8 +27,8 @@
 		border-bottom: 1px solid #ccc;
 	}
 	.listWrap img {
-		width: 100px;
-		height: 100px;
+		width: 93px;
+		height: 93px;
 		float: right;
 	}
 	.listWrap .left {
