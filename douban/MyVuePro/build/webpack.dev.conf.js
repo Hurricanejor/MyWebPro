@@ -22,6 +22,7 @@ app.use('/api',apiRoutes)
 var homeData=require('../src/data/homeData.json')
 var movieList=require('../src/data/movieList.json')
 var movieList1=require('../src/data/movieList2.json')
+var movieList2=require('../src/data/movieList3.json')
 
 
 
@@ -69,6 +70,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       app.get('/movieList2',function (req,res) {
         res.json({
           data:movieList1
+        })
+      }),
+      app.get('/movieList3',function (req,res) {
+        res.json({
+          data:movieList2
         })
       })
     }

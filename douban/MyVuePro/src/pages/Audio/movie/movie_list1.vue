@@ -102,6 +102,16 @@
 				observer:true,//修改swiper自己或子元素时，自动初始化swiper
     			observeParents:true //修改swiper的父元素时，自动初始化swiper
 			});
+
+			// var Swiper2 = new Swiper('#swiper-container2',{
+			//   initialSlide :2,
+			// })
+			// var Swiper1 = new Swiper('#swiper-container1',{
+			//   controller: {
+			//     control: Swiper2,
+			//     inverse :true,
+			//   },
+			// })
 		}
 	}
 </script>
@@ -126,7 +136,7 @@
 		width: 90px;
 		border-radius: 5px;
 	}
-	.movie_title {
+	/*.movie_title {
 		font-size: 12px;
 		color: #333;
 		width: 80%;
@@ -147,7 +157,7 @@
 	}
 	.star_img {
 		width: 10px;
-	}
+	}*/
 	.more {
 		height: 130px;
 		width: 90px;
