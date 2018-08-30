@@ -1,48 +1,80 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8">    
+    <meta charset="UTF-8">
     <title>IFE ECMAScript</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style type="text/css" media="screen">
+    .container {
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 6px;
+        border: 2px solid #286090;
+    }
+    input,button,.input-group,.btn-group {
+        margin: 10px auto;
+    }
+    </style>
 </head>
-<body>        
-    <input id="first-number" type="number" placeholder="第一个数字">
-    <input id="second-number" type="number" placeholder="第二个数字">
-    <button id="add-btn">加</button>
-    <button id="minus-btn">减</button>
-    <button id="times-btn">乘</button>
-    <button id="divide-btn">除</button>
-    <p id="result">运算结果:</p>
+
+<body>
+    <div class="container">
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">第一个数字</button>
+            </span>
+            <input id="first-number" type="text" class="form-control">
+        </div>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">第二个数字</button>
+            </span>
+            <input id="second-number"  type="text" class="form-control">
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-default" id="add-btn">加</button>
+            <button class="btn btn-default" id="minus-btn">减</button>
+            <button class="btn btn-default" id="times-btn">乘</button>
+            <button class="btn btn-default" id="divide-btn">除</button>
+        </div>
+        <p id="result" class="alert alert-success">运算结果:</p>
+        <a href="js_17_01.html" class="btn btn-primary pull-right">下一个任务</a>
+    </div>
     <script>
+    // 加法
+    document.getElementById("add-btn").onclick = function() {
+        document.getElementById("result").innerHTML = "运算结果:";
+        document.getElementById("result").innerHTML += parseInt(document.getElementById("first-number").value) + parseInt(document.getElementById("second-number").value);
+    }
 
-        // 加法
-        document.getElementById("add-btn").onclick = function() {
-            document.getElementById("result").innerHTML = "运算结果:";
-            document.getElementById("result").innerHTML +=  parseInt(document.getElementById("first-number").value) + parseInt(document.getElementById("second-number").value);
+    // 减法
+    document.getElementById("minus-btn").onclick = function() {
+        document.getElementById("result").innerHTML = "运算结果:";
+        document.getElementById("result").innerHTML += parseInt(document.getElementById("first-number").value) - parseInt(document.getElementById("second-number").value);
+    }
+
+    // 乘法
+    document.getElementById("times-btn").onclick = function() {
+        document.getElementById("result").innerHTML = "运算结果:";
+        document.getElementById("result").innerHTML += parseInt(document.getElementById("first-number").value) * parseInt(document.getElementById("second-number").value);
+    }
+
+    // 除法
+    document.getElementById("divide-btn").onclick = function() {
+        document.getElementById("result").innerHTML = "运算结果:";
+        if (parseInt(document.getElementById("second-number").value) == 0) {
+            document.getElementById("result").innerHTML = "被除数不能为零。";
+        } else {
+            document.getElementById("result").innerHTML += parseInt(document.getElementById("first-number").value) / parseInt(document.getElementById("second-number").value);
         }
 
-        // 减法
-        document.getElementById("minus-btn").onclick = function() {
-            document.getElementById("result").innerHTML = "运算结果:";
-            document.getElementById("result").innerHTML +=  parseInt(document.getElementById("first-number").value) - parseInt(document.getElementById("second-number").value);
-        }
-
-        // 乘法
-        document.getElementById("times-btn").onclick = function() {
-            document.getElementById("result").innerHTML = "运算结果:";
-            document.getElementById("result").innerHTML +=  parseInt(document.getElementById("first-number").value) * parseInt(document.getElementById("second-number").value);
-        }
-
-        // 除法
-        document.getElementById("divide-btn").onclick = function() {
-            document.getElementById("result").innerHTML = "运算结果:";
-            if (parseInt(document.getElementById("second-number").value) == 0) {
-                document.getElementById("result").innerHTML = "被除数不能为零。";
-            }
-            else{
-                document.getElementById("result").innerHTML +=  parseInt(document.getElementById("first-number").value) / parseInt(document.getElementById("second-number").value);
-            }
-            
-        }
+    }
     </script>
 </body>
+
 </html>

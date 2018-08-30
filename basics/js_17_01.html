@@ -2,13 +2,36 @@
 <html>
 <head>
     <meta charset="UTF-8">    
-    <title>IFE ECMAScript</title>
+    <title>将数字转化为二进制</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style type="text/css" media="screen">
+    .container {
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 6px;
+        border: 2px solid #286090;
+    }
+    input,button,.input-group {
+        margin: 10px auto;
+    }
+    </style>
 </head>
 <body>        
-    <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
-    <button id="trans-btn">转化为二进制</button>
-    <p id="result">运算结果:</p>
-    <a href="js_17_02.html">下一个任务</a>
+    <div class="container">
+        <div class="input-group">
+            <input type="number" id="dec-number" placeholder="输入一个十进制非负整数" class="form-control">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" id="trans-btn">转化为二进制</button>
+            </span>
+        </div>
+        <p class="alert alert-success" id="result">运算结果:</p>
+        <a href="js_16.html" class="btn btn-success">上一个任务</a>
+        <a href="js_17_02.html" class="btn btn-primary pull-right">下一个任务</a>
+    </div>
     <script>
 
     var val;
