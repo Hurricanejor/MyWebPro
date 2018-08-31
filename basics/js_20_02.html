@@ -3,32 +3,47 @@
 <head>
     <meta charset="UTF-8">    
     <title>IFE ECMAScript</title>
+    <link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.css">
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
     <style>
-        select {
+        #school-select,#company-select {
             display: none;
+        }
+        .form-control {
+            width: 50%;
         }
     </style>
 </head>
-<body>            
-    <label>
-        <input id="school" name="status" type="radio">
-        School
-    </label>
-    <label>
-        <input id="company" name="status" type="radio">
-        Company
-    </label>
-
-    <select id="school-select">        
-        <option>北京邮电大学</option>
-        <option>黑龙江大学</option>
-        <option>华中科技大学</option>
-    </select>
-
-    <select id="company-select">        
-        <option>百度</option>
-        <option>爱奇艺</option>        
-    </select>
+<body>
+    <div class="container">
+        <p class="alert alert-success">
+            <strong>实现以下功能：</strong><br />
+                1.当用户选择了 School 的单选框时，显示 School 的下拉选项，隐藏 Company 的下拉选项<br />
+                2.当用户选择了 Company 的单选框时，显示 Company 的下拉选项，隐藏 School 的下拉选项</p>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="school">School
+            </label>
+            <select id="school-select" class="form-control">        
+                <option>北京邮电大学</option>
+                <option>黑龙江大学</option>
+                <option>华中科技大学</option>
+            </select>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="company">Company
+            </label>
+            <select id="company-select" class="form-control">        
+                <option>百度</option>
+                <option>爱奇艺</option>        
+            </select>
+        </div>
+        <a href="js_20_01.html" class="btn btn-success">上一个任务</a>
+        <a href="js_20_03.html" class="btn btn-primary pull-right">下一个任务</a>
+    </div>
 </body>
 <script type="text/javascript">
     /*
