@@ -15,10 +15,29 @@
 			list-style-type: none;
 		}
 
+		/*@media screen and (max-width: 768px){
+			.left_banner {
+				width: 60px;
+			}
+			.left_banner .left_banner_icon_box li {
+				width: 40px;
+				margin: 5px;
+			}
+			.left_banner .left_banner_icon_box li img {
+				width: 30px;
+			}
+		}*/
+		
+		::-webkit-scrollbar {
+			/*隐藏滚轮*/
+			/*display: none;*/
+		}
+
 		/*左侧第一栏-导航栏*/
 		.left_banner {
 			float: left;
-			width: 100px;
+			/*width: 100px;*/
+			width: 8%;
 			height: 100%;
 			position: relative;
 			background-color: #1D2531;
@@ -45,7 +64,8 @@
 
 		/*左边第二栏-菜单栏*/
 		.left_menu {
-			width: 250px;
+			/*width: 250px;*/
+			width: 27%;
 			height: 100%;
 			float: left;
 			background-color: #222C3C;
@@ -162,8 +182,10 @@
 
 		/*聊天窗体部分*/
 		.main_box {
-			overflow: hidden;
-			height: 100%;
+			/*overflow: hidden;
+			height: 100%;*/
+			float: left;
+			width: 65%
 		}
 		.message_title {
 			height: 80px;
@@ -242,18 +264,21 @@
 
 		/*白色区域左侧部分*/
 		.main_box_left {
-			width: 380px;
+			position: relative;
+			/*width: 380px;*/
+			width: 35%;
 			float: left;
 			border-right: 1px solid #E6E9EC;
 		}
-		.main_box_left .search_box {
+		.search_box {
 			position: relative;
 		}
 		.main_box_left .search_box input {
 			outline: none;
 			display: block;
 			height: 35px;
-			width: 300px;
+			/*width: 300px;*/
+			width: 80%;
 			border: 1px solid #E6E9EC;
 			border-radius: 2px;
 			margin: 20px auto;
@@ -284,8 +309,7 @@
 		}
 		.friend_list_wrap {
 			overflow: scroll;
-			overflow-x: hidden;	
-			height: 478px;
+			height: 100%;
 		}
 		/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
 		.friend_list_wrap::-webkit-scrollbar
@@ -305,7 +329,8 @@
 		}
 		.friend_list_box .user_info_box {
 			float: left;
-			width: 360px;
+			/*width: 360px;*/
+			width: 100%;
 			margin: 0;
 		}
 
@@ -343,7 +368,8 @@
 			float: left;
 		}
 		.width_fixed {
-			width: 320px;
+			/*width: 320px;*/
+			width: 85%
 		}
 		i.message_num {
 			width: 25px;
