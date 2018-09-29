@@ -3,11 +3,22 @@
     <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <title>简单解决</title>
         <style type="text/css">
-            div{
+            .container {
+                margin: 10px auto;
+                height: 500px;
+                padding: 10px;
+                border-radius: 6px;
+                border: 2px solid #286090;
+            }
+            #div{
                 width: 100px;
                 height: 100px;
                 border:1px solid;
@@ -18,7 +29,7 @@
                 /* 在此处留一个transition就够了 */
                 transition: all 1s linear;
             }
-            div:hover{
+            #div:hover{
                 transform: scale(2);
                  /* 去掉这个tansition */
                 /* transition:  all 1s linear; */
@@ -26,6 +37,9 @@
         </style>
     </head>
     <body>
-        <div></div>
+        <div class="container">
+            <p class="alert alert-success">初步接触 CSS 2D 变形</p>
+            <div id="div"></div>
+        </div>
     </body>
     </html>
