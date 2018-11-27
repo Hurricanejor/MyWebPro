@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="bootstrap/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style type="text/css" media="screen">
+    .container {
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 6px;
+        border: 2px solid #286090;
+    }
+    p,input,button,.input-group,.btn-group {
+        margin: 10px auto;
+    }
+    </style>
+</head>
+<body>        
+    <div class="container">
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">输入一个十进制非负整数</button>
+            </span>
+            <input type="number" id="dec-number" placeholder="输入一个十进制非负整数" class="form-control">
+        </div>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">输入转化后二进制数字位数</button>
+            </span>
+            <input type="number" id="bin-bit" placeholder="输入转化后二进制数字位数" class="form-control">
+        </div>
+        <!-- <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+        <input type="number" placeholder="输入转化后二进制数字位数"> -->
+        <button id="trans-btn" class="btn btn-default">转化为二进制</button>
+        <p class="alert alert-success" id="result">运算结果:</p>
+        <a href="js_17_01.html" class="btn btn-success">上一个任务</a>
+        <a href="js_17_03.html" class="btn btn-primary pull-right">下一个任务</a>
+    </div>
+    <script>
+
+    var val1,val2;
+    document.getElementById("trans-btn").onclick = function dec2bin(decNumber) {
+        // 在这里实现你的转化方法，注意需要判断输入必须为一个非负整数
+        // 这里是上一个任务的实现
+        val1 = document.getElementById("dec-number").value;
+        decNumber = parseInt(val1);
+
+        val2 = document.getElementById("bin-bit").value;
+        val2 = parseInt(val2);
+
+        // 非负整数判断
+        if (decNumber < 0 || decNumber % 1 != 0 || val1.indexOf(".") > -1) {
+            document.getElementById("result").innerHTML = "运算结果:请输入非负整数";
+        }
+        else {
+                var arr = "";
+                var shang = Math.floor(decNumber);//商
+                var yushu = "";//余数
+                while (shang != 0) {
+                    yushu = Math.floor(shang % 2);
+                    shang = Math.floor(shang / 2);
+                    console.log("余数："+yushu);
+                    console.log("商："+shang);
+                    arr += yushu.toString();
+                    
+                }
+                arr = arr.toString().split("").reverse();
+                arr = arr.join("");
+                console.log("结果："+arr);
+                // join() 方法用于把数组中的所有元素放入一个字符串。元素是通过指定的分隔符进行分隔的。
+
+                if (arr.length > val2) {
+                    console.log("二进制数字位数输入不符合规范，小于真实的二进制数字位数，请重新输入！")
+                }
+                else if (arr.length < val2) {
+                    val2 = val2 - arr.length;
+                    // console.log(val2);
+                    for (var i = 0; i < val2; i++) {
+                        arr = "0" + arr;
+                    }
+                    // console.log(typeof(arr));
+                }
+                document.getElementById("result").innerHTML = "运算结果："+arr;
+        }
+    }
+
+
+// 实现党点击转化按钮时，将输入的十进制数字转化为二进制，并显示在result的p标签内
+// 新的需求是，转化显示后的二进制数为bin-bit中输入的数字宽度，例如
+// dec-number为5，bin-bit为5，则转化后数字为00101
+// 如果bin-bit小于转化后的二进制本身位数，则使用原本的位数，如dec-number为5，bin-bit为2，依然输出101，但同时在console中报个错
+// Some coding
+
+    </script>
+</body>
+</html>

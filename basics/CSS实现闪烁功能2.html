@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>╭(╯^╰)╮</title>
+    <style>
+        .container{
+            width: 580px;
+            height: 325px;
+            position: relative;
+        }
+        .container:hover:before{
+            transition: left 2s;/*过渡,改变闪光的位置*/
+            left: 770px;
+        }
+        .container:before{/*在图片之前插入闪光*/
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 325px;
+            top: 0;
+            left: -190px;
+            overflow: hidden;
+            background-image: linear-gradient(to right,rgba(255,255,255,.2) 0,rgba(255,255,255,.5) 50%,rgba(255,255,255,.2) 100%);/*linear-gradient渐变效果*/
+            transform: skewX(-25deg);/*沿x轴倾斜*/
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3515920666,1677097457&fm=58" alt="加载中..."/>
+    </div>
+</body>
+</html>

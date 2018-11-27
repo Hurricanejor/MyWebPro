@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>复杂页面实现</title>
+	<link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.css">
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		html,body {
+			height: 100%;
+		}
+		li {
+			list-style-type: none;
+		}
+
+		img {
+			display: block; height: auto; max-width: 100%;
+			margin: auto;
+		}
+		::-webkit-scrollbar {
+			/*隐藏滚轮*/
+			display: none;
+		}
+		.container {
+			height: 100%;
+			width: 100%;
+			margin: 0;
+		}
+		.row {
+			height: 100%;
+		}
+
+		/*左侧第一栏-导航栏*/
+		.left_nav {
+			background-color: #1D2531;
+			height: 100%;
+			position: relative;
+		}
+		.left_banner .left_banner_icon_box li {
+			/*width: 60px;*/
+			margin: 20px auto;
+		}
+		.left_banner_bottom {
+			position: absolute;
+			bottom: 0;
+			margin: 20px auto;
+		}
+		.left_banner_bottom li {
+			float: left;
+			width: 50%;
+		}
+
+		/*左边第二栏-菜单栏*/
+		.left_menu {
+			/*width: 250px;
+			width: 27%;
+			float: left;
+			position: relative;
+			display: flex;
+			flex-flow: column wrap;*/
+			height: 100%;
+			background-color: #222C3C;
+		}
+		.left_menu_part1,
+		.left_menu_part2,
+		.left_menu_part3 {
+			margin: 15px;
+			border-bottom: 1px solid #2A3547;
+		}
+		.left_menu_part3 {
+			border: none;
+		}
+		.left_menu_title {
+			font-family: ProximaNova-Semibold;
+			font-size: 12px;
+			color: #5B6779;
+		}
+		.left_menu_title i.setting {
+			width: 16px;
+			height: 16px;
+			float: right;
+			background: url("./src/images_2/Settings.png") no-repeat;
+		}
+		.left_menu_content {
+			margin-top: 10px;
+		}
+		.left_menu_content li {
+			height: 28px;
+			font-family: ProximaNova-Semibold;
+			font-size: 14px;
+			color: #B7C0CD;
+		}
+		.left_menu_content i.notice {
+			width: 32px;
+			height: 24px;
+			float: right;
+			font-family: ProximaNova-Semibold;
+			font-size: 14px;
+			text-align: center;
+			font-style: normal;
+			color: #FFFFFF;
+			background: url("./src/images_2/left_menu_base.png") no-repeat;
+			
+			/*字体居中*/
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+		}
+
+		.left_menu_content i#Books,
+		.left_menu_content i#Tutorials,
+		.left_menu_content i#Stocks,
+		.left_menu_content i#Infographics {
+			width: 20px;
+			height: 20px;
+			display: block;
+			float: left;
+			margin-right: 5px;
+		}
+		.left_menu_content i#Books {
+			background: url("./src/images_2/left_menu_book.png") no-repeat center;
+		}
+		.left_menu_content i#Tutorials {
+			background: url("./src/images_2/left_menu_vedio.png") no-repeat center;
+		}
+		.left_menu_content i#Stocks {
+			background: url("./src/images_2/left_menu_pic.png") no-repeat center;
+		}
+		.left_menu_content i#Infographics {
+			background: url("./src/images_2/left_menu_chart.png") no-repeat center;
+		}
+
+		.left_menu_content i.alert {
+			width: 24px;
+			height: 24px;
+			float: right;
+			background: url("./src/images_2/left_menu_alert.png") no-repeat center;
+		}
+		.left_menu_bottom {
+			margin: 15px;
+			width: 80%;
+			position: absolute;
+			bottom: 0;
+		}
+		.left_menu_bottom p {
+			font-family: ProximaNova-Semibold;
+			font-size: 14px;
+			color: #FFFFFF;
+		}
+		.left_menu_bottom span {
+			display: block;
+			float: right;
+			font-family: ProximaNova-Regular;
+		}
+		.progress_bar {
+			height: 5px;
+			margin-top: 10px;
+			background-color: #475364;
+			border-radius: 50px;
+		}
+		.progress_bar_fill {
+			width: 40px;
+			height: 5px;
+			border-radius: 50px;
+
+			/*进度条渐变*/
+			background: linear-gradient(to right, #7757d6, #9b8de3); 
+		}
+
+		/*聊天窗体部分*/
+		.main_box {
+			overflow: hidden;
+			height: 100%;
+			padding: 0;
+		}
+		.message_title {
+			height: 10%;
+			border-bottom: 1px solid #E6E9EC;
+			/*布局新增*/
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		.message_title p {
+			font-family: ProximaNova-Regular;
+			color: #354052;
+			font-size: 24px;
+			float: left;
+			margin: 0 15px;
+		}
+		.user_info_box {
+			/*float: right;*/
+			width: 200px;
+			margin: 10px;
+		}
+		.portrait_box {
+			width: 50px;
+			height: 50px;
+			/*border: 1px solid #FFFFFF;*/
+			border-radius: 50%;
+			position: relative;
+			float: left;
+		}
+		.portrait_box img {
+			display: block;
+			width: 50px;
+			border-radius: 50%;
+		}
+		.portrait_box i {
+			width: 18px;
+			height: 18px;
+			background-color: #FFFFFF;
+			border-radius: 50%;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+		}
+		.status {
+			background: url(./src/images_2/Status.png) no-repeat center;
+		}
+		.name_box {
+			/*margin: 0 20px;*/
+			/*float: left;*/
+		}
+		.name_box p {
+			/*line-height: 30px;*/
+			font-family: ProximaNova-Semibold;
+			font-size: 14px;
+			font-weight: bold;
+			color: #2399F1;
+		}
+		.name_box span {
+			display: block;
+			font-family: ProximaNova-Semibold;
+			font-size: 14px;
+			color: #B5B5B5;
+		}
+		.drop_down_box {
+			float: right;
+			margin: 25px 0;
+		}
+		.drop_down_box i {
+			display: block;
+			width: 13px;
+			height: 11px;
+			background: url("./src/images_2/dropdown.png") no-repeat center;
+			
+		}
+
+		/*白色区域左侧部分*/
+		.main_box_left {
+			position: relative;
+			float: left;
+			height: 90%;
+			padding: 0;
+			border-right: 1px solid #E6E9EC;
+		}
+		.search_box {
+			position: relative;
+			height: 10%;
+			display: flex;
+			text-align: center;
+			align-items: center;
+			justify-content: space-around;
+		}
+		.main_box_left .search_box input {
+			outline: none;
+			display: block;
+			height: 35px;
+			/*width: 300px;*/
+			width: 90%;
+			border: 1px solid #E6E9EC;
+			border-radius: 2px;
+			/*margin: 20px auto;*/
+			/*padding: 0 30px 0 10px;*/
+			font-family: ProximaNova-Semibold;
+			font-size: 14px;
+			color: #9FA9BA;
+		}
+		.main_box_left .search_box input::-webkit-input-placeholder{
+			font-family: ProximaNova-Semibold;
+			font-size: 14px;
+			color: #9FA9BA;
+		}
+		.search_box {
+			overflow: hidden;
+			border-bottom: 1px solid #E6E9EC;
+		}
+		.search_box i {
+			cursor: pointer;
+			width: 18px;
+			height: 18px;
+			position: absolute;
+			right: 25px;
+		}
+		i.search {
+			background: url("./src/images_2/Search-icon.png") no-repeat center;
+		}
+		.friend_list_wrap {
+			overflow: scroll;
+			height: 90%;
+		}
+		/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+		.friend_list_wrap::-webkit-scrollbar
+		{
+		    opacity: 0;
+		    width: 0;
+		    background-color: #F5F5F5;
+		}
+		.friend_list_box {
+			overflow: hidden;
+			border-bottom: 1px solid #E6E9EC;
+			padding: 10px 0;
+		}
+		.border_blue {
+			border-left: 3px solid #2399F1;
+			box-sizing: border-box;
+		}
+		.friend_list_box .user_info_box {
+			float: left;
+			/*width: 360px;*/
+			width: 100%;
+			margin: 0;
+		}
+
+		.friend_list_box .name_box p.color_blue {
+			color: #2399F1;
+		}
+		.friend_list_box .name_box {
+			float: left;
+		}
+		.friend_list_box .name_box p {
+			color: #585D68;
+		}
+		.portrait_box1 {
+			height: 45px;
+			width: 45px;
+			float: left;
+			/*margin: 0 20px;*/
+			background: url("./src/images_2/photo_2.png") no-repeat center;
+			border-radius: 50%;
+		}
+		.friend_list_box .user_info_box p.distance {
+			font-family: ProximaNova-Semibold;
+			font-size: 14px;
+			color: #7F8FA4;
+			float: right;
+		}
+		.cb {
+			clear: both;
+		}
+		.chat_content {
+			font-family: ProximaNova-Regular;
+			font-size: 14px;
+			color: #585D68;
+			margin: 5px;
+			float: left;
+		}
+		.width_fixed {
+			/*width: 320px;*/
+			width: 85%
+		}
+		i.message_num {
+			width: 25px;
+			height: 25px;
+			background: url("./src/images_2/base.png") no-repeat center;
+			float: right;
+		    font-family: ProximaNova-Semibold;
+		    font-size: 14px;
+		    text-align: center;
+		    font-style: normal;
+		    color: #FFFFFF;
+		    display: flex;
+		    align-items: center;
+		    justify-content: space-around;
+		    margin: 20px 0;
+		}
+		.portrait_box2,
+		.portrait_box3,
+		.portrait_box4,
+		.portrait_box5,
+		.portrait_box6,
+		.portrait_box7 {
+			float: left;
+			overflow: hidden;
+		}
+		.portrait_box2 img,
+		.portrait_box3 img,
+		.portrait_box4 img,
+		.portrait_box5 img,
+		.portrait_box6 img,
+		.portrait_box7 img {
+			float: left;
+		    display: block;
+		    width: 45px;
+		    border-radius: 50%;
+		}
+
+		/**/
+		.dialog_box {
+			/*float: left;*/
+			overflow: hidden;
+			height: 90%;
+			border-bottom: 1px solid #E6E9EC;
+		}
+		.dialog_friend_info {
+			width: 100%;
+			height: 10%;
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+		}
+		.dialog_title p {
+			font-family: ProximaNova-Semibold;
+			font-size: 18px;
+			color: #585D68;
+			font-weight: bold;
+		}
+		.dialog_title span {
+			color: #1BB934;
+		}
+		.btn-group button{
+			background: linear-gradient(to bottom, #FFFFFF, #F1F3F7);
+		}
+		.dialog_operation {
+			display: flex;
+			flex-flow: row wrap;
+			float: left;
+		}
+		.dialog_operation ul {
+			width: 110px;
+			height: 30px;
+		}
+		.dialog_operation li {
+			box-sizing: border-box;
+			width: 36.5px;
+			height: 100%;
+			float: left;
+			display: flex;
+			align-items: center;
+		    justify-content: space-around;
+		}
+		.dialog_content {
+			font-family: ProximaNova-Semibold;
+			font-size: 14px;
+			color: #56688A;
+			margin: 0;
+		}
+		.border_right_li {
+			border-right: 1px solid #CED0DA;
+		}
+		.heigh_border {
+			width: 2px;
+			background-color: #CED0DA;
+			margin: 0 20px;
+			float: left;
+		}
+		.message_box {
+			padding: 10px 0;
+		}
+		.dialog_message_box {
+			border-top: 1px solid #E6E9EC;
+			overflow: scroll;
+			overflow-x: hidden;
+			height: 90%;
+		}
+		/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+		/*.dialog_message_box::-webkit-scrollbar
+		{
+		    opacity: 0;
+		    width: 0;
+		    background-color: #F5F5F5;
+		}*/
+		p#message_title {
+			font-family: ProximaNova-Semibold;
+			font-size: 16px;
+			color: #585D68;
+			line-height: 35px;
+		}
+		.send_time {
+			margin: 0 20px;
+			font-size: 14px;
+			color: #7F8FA4;
+		}
+		.dialog_message_box  .message_info p{
+			font-family: ProximaNova-Regular;
+			font-size: 14px;
+			color: #585D68;
+		}
+		.mar_top {
+			margin: 20px;
+		}
+		.dialog_message_box .portrait_box {
+			width: 45px;
+		}
+		.dialog_message_box .portrait_box img {
+			width: 45px;
+			display: inline-block;
+		}
+		.liner_box {
+			background-color: #7F8FA4;
+			width: 100%;
+			height: 1px;
+			text-align: center;
+		}
+		.liner_box span {
+			position: relative;
+			top: -12px;
+			background-color: #FFFFFF;
+			display: inline-block;
+			width: 80px;
+			font-family: ProximaNova-Regular;
+			font-size: 14px;
+			color: #7F8FA4;
+		}
+		.liner_box_blue {
+			background-color: #2399F1;
+			width: 100%;
+			height: 1px;
+			text-align: center;
+		}
+		.liner_box_blue span {
+			position: relative;
+			top: -12px;
+			background-color: #FFFFFF;
+			display: inline-block;
+			width: 120px;
+			font-family: ProximaNova-Regular;
+			font-size: 14px;
+			color: #2399F1;
+		}
+		.pic_box {
+			float: left;
+			position: relative;
+		}
+		.message_pic .pic_box img {
+			border-radius: 4px;
+			margin: 10px;
+		}
+		.message_pic .pic_box img:hover .popup_gray_back{
+			display: block;
+		}
+		.popup_gray_back {
+			width: 156px;
+			height: 100px;
+			border-radius: 4px;
+			background-color: #28303C;
+			opacity: 0.8;
+			position: absolute;
+			top: 0;
+			margin: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+		}
+		.cycle_background {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			background-color: rgba(256,256,256,0.5);
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+		}
+		i.open_pic {
+			width: 18px;
+			height: 18px;
+			background: url("./src/images_2/Open-icon.png") no-repeat center;
+		}
+		.input_box {
+			margin: 20px auto;
+		}
+		.input_box button {
+			background: linear-gradient(to bottom, #FFFFFF, #F1F3F7);
+			outline: none;
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+		}
+		.fl {
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		最左侧一列要求自适应浏览器高度，左上面4个按钮相对浏览器左上角固定位置，左下方两个按钮相对浏览器左下角固定位置
+		左侧第二列(蓝色背景色)导航列固定宽度，高度也是自适应浏览器高度，最下面的Monthly Goals部分的内容相对浏览器下边固定位置
+		整个白色区域自适应宽度，右上方的人脸，名字部分相对浏览器右上角固定位置
+		白色区域左侧列固定宽度，右侧列自适应宽度
+	 -->
+
+	 <!-- 左侧第一栏-导航栏 -->
+
+	 <div class="container">
+	 	<div class="row">
+	 		<!-- 左边第一栏 -->
+	 		<div class="left_nav col-sm-1 col-md-1 col-lg-1">
+	 			<!-- 左侧导航栏上方三个图标 -->
+	 			<div class="left_banner">
+				    <div class="left_banner_icon_box">
+						<ul>
+							<li>
+								<img src="./src/images_2/Item-airplane.png">
+							</li>
+							<li>
+								<img src="./src/images_2/Item-rocket.png">
+							</li>
+							<li>
+								<img src="./src/images_2/Item_game.png">
+							</li>
+							<li>
+								<img src="./src/images_2/Item-add.png">
+							</li>
+						</ul>
+					</div>
+		 		</div>
+		 		<div class="left_banner_bottom col-sm-9 col-md-9 col-lg-9">
+					<ul>
+						<li>
+							<img src="./src/images_2/left_banner_grid.png">
+						</li>
+						<li>
+							<img src="./src/images_2/Settings.png">
+						</li>
+					</ul>
+				</div>
+	 		</div>
+		
+			<!-- 左边第二栏-菜单栏 -->
+			<div class="left_menu col-sm-3 col-md-2 col-lg-2">
+				<div class="left_menu_part1">
+					<p class="left_menu_title">MENU<i class="setting"></i></p>
+					<div class="left_menu_content">
+						<ul>
+							<li>Overview</li>
+							<li>Sales<i class="notice">54</i></li>
+							<li>Your Staff</li>
+							<li>Analytics & Targeting</li>
+							<li>What’s New</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="left_menu_part2">
+					<p class="left_menu_title">YOUR PRODUCTS<i class="setting"></i></p>
+					<div class="left_menu_content">
+						<ul>
+							<li><i id="Books"></i>Books</li>
+							<li><i id="Tutorials"></i>Tutorials</li>
+							<li><i id="Stocks"></i>Stocks</li>
+							<li><i id="Infographics"></i>Infographics</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="left_menu_part3">
+					<p class="left_menu_title">DASHBOARD<i class="setting"></i></p>
+					<div class="left_menu_content">
+						<ul>
+							<li>Messages<i class="notice">21</i></li>
+							<li>Connections</li>
+							<li>Integrations<i class="alert"></i></li>
+							<li>Account Settings</li>
+							<li>App Settings</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="left_menu_bottom">
+					<p>Monthly Goals<span>$580/$3200</span></p>
+					<div class="progress_bar">
+						<div class="progress_bar_fill"></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 聊天主窗体 -->
+			<div class="main_box col-sm-8 col-md-9 col-lg-9">
+
+				<!-- 标题框 -->
+				<div class="message_title">
+					<p>Messages</p>
+					<div class="user_info_box col-sm-12 col-md-12 col-lg-12">
+						<div class="portrait_box">
+							<img src="./src/images_2/photo_1.png">
+							<i class="status"></i>
+						</div>
+						<div class="name_box fl">
+							<p>Jordan J.</p>
+							<span>Administrator</span>
+						</div>
+						<div class="drop_down_box">
+							<i class="drop_down"></i>
+						</div>
+					</div>
+				</div>
+
+				<!-- 搜索框及好友列表 -->
+				<div class="main_box_left col-sm-5 col-md-5 col-lg-5">
+					<div class="search_box">
+						<input type="text" name="" placeholder="Search">
+						<i class="search"></i>
+					</div>
+			
+					<!-- 好友列表框 -->
+					<div class="friend_list_wrap">
+						<div class="friend_list_box border_blue">
+							<div class="user_info_box col-sm-12 col-md-12 col-lg-12">
+								<div class="portrait_box1">
+								</div>
+								<div class="name_box col-md-7 col-sm-7 col-lg-7">
+									<p class="color_blue">● Bessie Berry</p>
+									<span>Twitter</span>
+								</div>
+								<p class="distance">3m</p>
+								<!-- <p class="cb"></p> -->
+								<p class="chat_content width_fixed">I pay for the 4Mb/sec down, 512 Kb/sec up service from O2. In fact, it's relatively quick, and stable...</p>
+								<i class="message_num">4</i>
+							</div>
+						</div>
+
+						<div class="friend_list_box">
+							<div class="user_info_box col-sm-12 col-md-12 col-lg-12">
+								<div class="portrait_box2">
+									<img src="./src/images_2/photo_3.png">
+								</div>
+								<div class="name_box  col-md-7 col-sm-7 col-lg-7">
+									<p>Victor Weber</p>
+									<span>Adobe</span>
+								</div>
+								<p class="distance">8m</p>
+								<!-- <p class="cb"></p> -->
+								<p class="chat_content">I shared this on my fb wall a few months back, and I thought I'd share it here again because it's such a great...</p>
+							</div>
+						</div>
+
+						<div class="friend_list_box">
+							<div class="user_info_box  col-sm-12 col-md-12 col-lg-12">
+								<div class="portrait_box3">
+									<img src="./src/images_2/photo_4.png">
+								</div>
+								<div class="name_box  col-md-7 col-sm-7 col-lg-7">
+									<p>Dustin Benson</p>
+									<span>Facebook</span>
+								</div>
+								<p class="distance">Yesterday</p>
+								<!-- <p class="cb"></p> -->
+								<p class="chat_content">If there is anyone who needs an invitation please add yourself in the comments of this post!</p>
+							</div>
+						</div>
+
+						<div class="friend_list_box">
+							<div class="user_info_box  col-sm-12 col-md-12 col-lg-12">
+								<div class="portrait_box4">
+									<img src="./src/images_2/photo_5.png">
+								</div>
+								<div class="name_box  col-md-7 col-sm-7 col-lg-7">
+									<p>Jack Mason</p>
+									<span>Yahoo</span>
+								</div>
+								<p class="distance">Yesterday</p>
+								<!-- <p class="cb"></p> -->
+								<p class="chat_content">BruteDC is a peer-to-peer movie+tv series sharing and downloading platform which works on intranet inside...</p>
+							</div>
+						</div>
+
+						<div class="friend_list_box">
+							<div class="user_info_box  col-sm-12 col-md-12 col-lg-12">
+								<div class="portrait_box5">
+									<img src="./src/images_2/photo_6.png">
+								</div>
+								<div class="name_box  col-md-7 col-sm-7 col-lg-7">
+									<p>Stephen Shelton</p>
+									<span>Snapchat</span>
+								</div>
+								<p class="distance">13 Jun</p>
+								<!-- <p class="cb"></p> -->
+								<p class="chat_content">Yes, p2p traffic is often filtered (QoSed). Although i do use BT on O2 wires, and in good days dl speed...</p>
+							</div>
+						</div>
+
+						<div class="friend_list_box">
+							<div class="user_info_box  col-sm-12 col-md-12 col-lg-12">
+								<div class="portrait_box6">
+									<img src="./src/images_2/photo_7.png">
+								</div>
+								<div class="name_box  col-md-7 col-sm-7 col-lg-7">
+									<p>Sally Willis</p>
+									<span>Twitter</span>
+								</div>
+								<p class="distance">12 Jun</p>
+								<!-- <p class="cb"></p> -->
+								<p class="chat_content">Yes, it's O2: 'internet extreme', which is no longer offered.</p>
+							</div>
+						</div>
+
+						<div class="friend_list_box">
+							<div class="user_info_box  col-sm-12 col-md-12 col-lg-12">
+								<div class="portrait_box7">
+									<img src="./src/images_2/photo_8.png">
+								</div>
+								<div class="name_box  col-md-7 col-sm-7 col-lg-7">
+									<p>Robert Patton</p>
+									<span>A Team</span>
+								</div>
+								<p class="distance">9 Jun</p>
+								<!-- <p class="cb"></p> -->
+								<p class="chat_content">I change my service from this 4Mb plan to their much cheaper 8Mb plan, my speed will dramatically decrease.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 对话框 -->
+				<div class="dialog_box col-md-7 col-sm-7 col-lg-7">
+					<div class="dialog_friend_info">
+						<div class="dialog_title">
+						     <p>Bessie Berry <span>●</span></p>
+					    </div>
+				    	<div class="dialog_operation btn-group btn-group-sm">
+				            <button type="button" class="btn btn-default"><img src="./src/images_2/User-icon.png"></button>
+				            <button type="button" class="btn btn-default"><img src="./src/images_2/Upload-icon.png"></button>
+				            <button type="button" class="btn btn-default"><img src="./src/images_2/Trash-icon.png"></button>
+				        </div>
+					    <p class="heigh_border"></p>
+					    <p class="dialog_content">1 of 28</p>
+					    <div class="dialog_change btn-group btn-group-sm">
+				            <button type="button" class="btn btn-default"><img src="./src/images_2/Arrow-left.png"></button>
+				            <button type="button" class="btn btn-default"><img src="./src/images_2/Arrow-right.png"></button>
+					    </div>
+					</div>
+					<!-- <div class="cb"></div> -->
+
+					<div class="dialog_message_box">
+						<div class="message_box col-sm-12 col-md-12 col-lg-12">
+							<div class="portrait_box1 col-sm-2 col-md-2 col-lg-2"></div>
+							<div class="message_info col-sm-10 col-md-10 col-lg-10">
+								<p id="message_title">Bessie Berry<span class="send_time">8:31 AM</span></p>
+								<p>Hi guys Ive got the O2 package and have really slow internet. A speed check online said i can get 3mbps but it seems more like 0.5 these days, just freezing and taking ages to open pages and open audio files for example. I have decided to switch to the UPC package which offers 10mbps but do you think i will get it?</p>
+							</div>
+						</div>
+
+						<div class="message_box col-sm-12 col-md-12 col-lg-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="portrait_box">
+								<img src="./src/images_2/photo_1.png">
+							</div>
+							<div class="message_info col-sm-10 col-md-10 col-lg-10">
+								<p id="message_title">Jordan Jackson<span class="send_time">8:31 AM</span></p>
+								<p>I have internet for 9 month and nevere could benefit from the full capacity of 5Mbit/s as it is filtered by O2 when it detect traffic on public p2p sharing in my situation all my internet speed slows to 512Kbit/s. I never had 400KB/s on when downloading from p2p public servers like torrent emule etc. I downoad with 500KB/s from private trakers instead. So conlcusion O2 block trafic on p2p connections. I have made hundreds of test in Italy and Sweden and Romania with the same file to doanload with the same setting and same antivirus and just needed to open ports in firewall and forward same ports and the speed was at full capacity in 1 minute. here in 9 month never had this luck.</p>
+							</div>
+						</div>
+						<p class="cb"></p>
+						<p class="liner_box"><span>Tuesday</span></p>
+
+						<div class="message_box  col-sm-12 col-md-12 col-lg-12">
+							<div class="portrait_box1 col-sm-2 col-md-2 col-lg-2">
+								</div>
+							<div class="message_info col-sm-10 col-md-10 col-lg-10">
+								<p id="message_title">Bessie Berry<span class="send_time">8:31 AM</span></p>
+								<p>Funny comparison. so would the proper antivirus not slow down the internet as much or do you mean a freebie doenst protect the computer from viruses?</p>
+							</div>
+						</div>
+
+						<div class="message_box  col-sm-12 col-md-12 col-lg-12">
+							<div class="portrait_box">
+								<img src="./src/images_2/photo_1.png">
+							</div>
+							<div class="message_info col-sm-10 col-md-10 col-lg-10">
+								<p id="message_title">Jordan Jackson<span class="send_time">8:31 AM</span></p>
+								<p>I pay for the 4Mb/sec down, 512 Kb/sec up service from O2, and haven't had any problems. In fact, it's relatively quick, and stable. It's not perfect, but I really don't have issues, as long as I keep track of what I'm doing on it. I max out at about 3 Mb/sec down, and 350 Kb/sec up. Probably because of a noisy telephone line, not because I'm being throttled. When my uploads go over 25 KB/sec (note, bytes, not bits), my download speed suffers. This is expected, as downloads require upload bandwidth as well.</p>
+								<div class="message_pic">
+									<div class="pic_box">
+										<img src="./src/images_2/message_img1.png">
+										<!-- <div class="popup_gray_back">
+											<div class="cycle_background">
+												<i class="open_pic"></i>
+											</div>
+										</div> -->
+									</div>
+									<div class="pic_box">
+										<img src="./src/images_2/message_img2.png">
+										<div class="popup_gray_back">
+											<div class="cycle_background">
+												<i class="open_pic"></i>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+						<p class="cb"></p>
+						<p class="liner_box_blue"><span>New Messages</span></p>
+
+						<div class="message_box  col-sm-12 col-md-12 col-lg-12">
+							<div class="portrait_box1 col-sm-2 col-md-2 col-lg-2"></div>
+							<div class="message_info col-sm-10 col-md-10 col-lg-10">
+								<p id="message_title">Bessie Berry<span class="send_time">8:31 AM</span></p>
+								<p>I pay for the 4Mb/sec down, 512 Kb/sec up service from O2. In fact, it's relatively quick, and stable. It's not perfect, but I really don't have issues, as long as I keep track of what I'm doing on it.</p>
+							</div>
+						</div>
+						<p class="cb"></p>
+
+						<div class="input_box col-sm-6 col-md-6 col-lg-12">
+							<div class="input-group">
+	                            <span class="input-group-btn">
+			                        <button class="btn btn-default" type="button">+</button>
+			                    </span>
+	                            <input type="text" class="form-control">
+	                        </div>
+						</div>
+					
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>九九乘法表</title>
+	<link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.css">
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+	<style type="text/css">
+		p {
+			text-align: center;
+			font-weight: bolder;
+		}
+		td {
+			padding: 5px 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<table id="result" class="table">
+		    <p>九九乘法表</p>
+	    </table>
+	    <a href="js_17_03.html" class="btn btn-success">上一个任务</a>
+	    <a href="myResume.html" class="btn btn-primary pull-right">下一个任务</a>
+	</div>
+</body>
+<script type="text/javascript">
+	method();
+	function method(argument) {
+		// body...
+		var str = "<tr>";
+			// str2 = new Array();
+		for (var i = 1; i <= 9; i++) {
+			for (var j = 1; j <= i; j++) {
+				str += "<td>" + j + "*" + i + "=" + i*j;
+			}
+			str += "<td/><tr/>";
+		}
+		// console.log(str);
+		document.getElementById("result").innerHTML += str;
+	}
+</script>
+</html>

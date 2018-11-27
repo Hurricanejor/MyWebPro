@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.css">
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+	<title></title>
+	<style type="text/css">
+		#eric_smile {
+			height: 480px;
+			width: 480px;
+			background: url("./src/img20/smile.jpg") no-repeat;
+			background-size: 480px 8160px;
+			/*background-position: 0px 0px;*/
+			margin: auto;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<p class="alert alert-success"></p>
+		<div id="eric_smile"></div>
+		<a href="ts2.html" class="btn btn-success">上一个任务</a>
+        <a href="js_22_01.html" class="btn btn-primary pull-right">下一个任务</a>
+	</div>
+</body>
+<script type="text/javascript">
+	var t1;
+	var ele = document.getElementById("eric_smile");
+	var flag = true;
+	ele.style.backgroundPositionY = "0px";
+	var positionY = 0;
+
+	window.onload = function() {
+		t1 = setInterval(function() {
+			if (flag) {
+				if (positionY > -7680) {
+					positionY = positionY - 480;
+					ele.style.backgroundPositionY = positionY + "px";
+				}
+				else {
+					flag = false;
+				}
+			}
+			else {
+				if (positionY < 0) {
+					positionY = positionY + 480;
+					ele.style.backgroundPositionY = positionY + "px";
+				}
+				else {
+					flag = true;
+				}
+			}
+		},50);
+	}
+	// function smile() {
+	// 	t1 = setInterval(function() {
+	// 		if (parseInt(ele.style.backgroundPositionY) - 480 <= 0) {
+	// 			ele.style.backgroundPositionY = (parseInt(ele.style.backgroundPositionY) - 480) + "px";
+	// 		}
+			
+	// 	},50);
+	// 	t2 = setInterval(function() {
+	// 		if (parseInt(ele.style.backgroundPositionY) + 480 >= -7680) {
+	// 			ele.style.backgroundPositionY = (parseInt(ele.style.backgroundPositionY) + 480) + "px";
+	// 		}
+	// 	},50);
+	// }
+</script>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.box_wrap {
+			height: 237px;
+			width: 677px;
+			margin: auto;
+			border: 1px solid #FBFBFB;
+			box-shadow: 0 0 3px #DCDCDC;
+		}
+		.box_wrap div {
+			width: 60px;
+			height: 68px;
+			float: left;
+			margin: 27px 18px;
+			background-color: #F7F6F6;
+			border: 1px solid #EBEBEB;
+		}
+		.box_wrap p {
+			font-size: 18px;
+			text-align: center;
+			color: #000;
+		}
+		/*.box0 {
+			width: 60px;
+			height: 68px;
+			background-color: #F7F6F6;
+			border: 1px solid #EBEBEB;
+		}*/
+		.box1 {
+			transform:skew(30deg,0deg);
+			-ms-transform:skew(30deg,0deg); /* IE 9 */
+			-moz-transform:skew(30deg,0deg); /* Firefox */
+			-webkit-transform:skew(30deg,0deg); /* Safari and Chrome */
+			-o-transform:skew(30deg,0deg); /* Opera */
+		}
+		.box2 {
+			transform:scale(0.5,1);
+			-ms-transform:scale(0.5,1); /* IE 9 */
+			-moz-transform:scale(0.5,1); /* Firefox */
+			-webkit-transform:scale(0.5,1); /* Safari and Chrome */
+			-o-transform:scale(0.5,1); /* Opera */
+		}
+		.box3 {
+			transform: rotate(45deg);
+			-ms-transform: rotate(45deg);		/* IE 9 */
+			-webkit-transform: rotate(45deg);	/* Safari and Chrome */
+			-o-transform: rotate(45deg);		/* Opera */
+			-moz-transform: rotate(45deg);		/* Firefox */
+		}
+		.box4 {
+			transform: translate(10px,20px);
+			-ms-transform: translate(10px,20px);		/* IE 9 */
+			-webkit-transform: translate(10px,20px);	/* Safari and Chrome */
+			-o-transform: translate(10px,20px);		/* Opera */
+			-moz-transform: translate(10px,20px);		/* Firefox */
+		}
+		/*
+			transform:matrix(m1,m2,m3,m4,m5,m6);
+			a 水平缩放
+			b 水平倾斜
+			c 垂直倾斜
+			d 垂直缩放
+			e 水平移动
+			f 垂直移动
+			m1: 缩放X轴;
+			m2: 沿X轴翻转;
+			m3: 沿Y轴翻转;
+			m4: 缩放Y轴;
+			m5: 从当前位置向X轴移动 m5 个位移;
+			m6: 从当前位置向Y轴移动 m6 个位移;
+
+		*/
+		.box5 {
+			transform:matrix(0.762,0.0547,0.707,0.707,10,20);
+			-ms-transform:matrix(0.762,0.0547,0.707,0.707,10,20);		/* IE 9 */
+			-moz-transform:matrix(0.762,0.0547,0.707,0.707,10,20);	/* Firefox */
+			-webkit-transform:matrix(0.762,0.0547,0.707,0.707,10,20);	/* Safari and Chrome */
+			-o-transform:matrix(0.762,0.0547,0.707,0.707,10,20);		/* Opera */
+		}
+	</style>
+</head>
+<body>
+	<div class="box_wrap">
+		<!-- 盒子0 -->
+		<div class="box0">
+			<p>box0</p>
+		</div>
+
+		<!-- 向左倾斜30度 -->
+		<div class="box1">
+			<p>box1</p>
+		</div>
+
+		<!-- 压缩2倍 -->
+		<div class="box2">
+			<p>box2</p>
+		</div>
+
+		<!-- 旋转45度 -->
+		<div class="box3">
+			<p>box3</p>
+		</div>
+
+		<!-- X轴位移10px Y轴位移20px -->
+		<div class="box4">
+			<p>box4</p>
+		</div>
+
+		<!-- 同时包含以上所有 -->
+		<div class="box5">
+			<p>box5</p>
+		</div>
+	</div>
+</body>
+</html>

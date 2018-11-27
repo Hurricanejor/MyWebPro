@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>二级路由配置</title>
+	<script type="text/javascript" src="./src/js/vue.js"></script>
+	<script type="text/javascript" src="./src/js/vue-router.js"></script>
+	<style type="text/css">
+		.show {
+			width: 300px;
+			height: 200px;
+			background-color: #eee;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<p>
+			<router-link to='/home'>home</router-link>
+			<router-link to='/hot'>hot</router-link>
+		</p>
+		<div class="show">
+			<router-view></router-view>
+		</div>
+	</div>
+
+	<template id="home">
+		<div>
+			<h2>首页</h2>
+			<ul>
+				<li>今日热点</li>
+				<li>体育新闻</li>
+				<li>娱乐看点</li>
+			</ul>
+		</div>
+	</template>
+
+	<template id="hot">
+		<div>
+			<h1>Hot</h1>
+			<!-- <router-link to='/hot/film'>film</router-link>
+			<router-link to='/hot/tv'>tv</router-link>
+			<router-view></router-view> -->
+			<ul>
+				<!-- 1、2、3 是需要传递的参数 -->
+				<li><router-link to='/hot/1'>热点01</router-link></li>
+				<li><router-link to='/hot/2'>热点02</router-link></li>
+				<li><router-link to='/hot/3'>热点03</router-link></li>
+			</ul>
+		</div>
+	</template>
+
+	<template id="hotdetail">
+		<div>
+			<p>新闻详情页</p>
+			<span>{{ arr[$route.params.id-1] }}</span>
+		</div>
+	</template>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	var Home = Vue.extend({
+		template: '#home'
+	});
+
+	var Hot = Vue.extend({
+		template: '#hot'
+	});
+
+	// 传递参数时，需要有一个新的模块接受传递的参数
+	var HotDetail = Vue.extend({
+		template: '#hotdetail',
+		data: function(){
+			return {
+				arr:['第一个热点：世界杯开赛','第二个热点：我不是药神上映','第三个热点：没有热点了']
+			}
+		}
+	});
+
+	var routes = [
+		// 此处错误：component不是负数，没有‘s’
+		{path:'/home',component:Home},
+		{path:'/hot',component:Hot},
+		// 显示热点详情页，需要为详情页配置路径信息
+		// 语法====> /:id
+		{path:'/hot/:id',component:HotDetail}
+	];
+
+	var router = new VueRouter({
+		routes: routes
+	});
+
+	var vm = new Vue({
+		el: '#box',
+		data: {
+
+		},
+		router: router
+	});
+
+	router.push('/home');
+</script>

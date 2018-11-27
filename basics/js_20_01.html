@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.css">
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+	<title></title>
+	<style type="text/css" media="screen">
+		p {
+			margin: 20px auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<p class="alert alert-success"><strong>实现如下功能：</strong><br />
+			1.当点击按钮 submit-btn 时，在console中输出 name 中的内容<br />
+			2.在输入过程中，如果按回车键，则同样执行上一条的需求<br />
+			3.在输入过程中，如果按 ESC 键，则把输入框中的内容清空
+		</p>
+
+		<div class="input-group">
+            <input type="text" id="name" class="form-control">
+            <span class="input-group-btn">
+                <button class="btn btn-default" id="submit-btn" type="button">Submit!</button>
+            </span>
+        </div>
+
+        <p class="alert alert-danger">请打开开发者模式查看结果</p>
+
+        <a href="js_17_04.html" class="btn btn-success">上一个任务</a>
+	    <a href="js_20_02.html" class="btn btn-primary pull-right">下一个任务</a>
+	</div>
+	
+</body>
+<script type="text/javascript">
+	/*
+		当点击按钮 submit-btn 时，在console中输出 name 中的内容
+		在输入过程中，如果按回车键，则同样执行上一条的需求
+		在输入过程中，如果按 ESC 键，则把输入框中的内容清空
+	*/
+	document.getElementById("submit-btn").onclick = function() {
+		var name = document.getElementById("name").value;
+		console.log(name);
+	};
+
+	document.onkeydown = function(e){
+        var ev = document.all ? window.event : e;
+        if(ev.keyCode == 13) {
+            var name = document.getElementById("name").value;
+			console.log(name);
+        }
+        else if(ev.keyCode == 27){
+        	document.getElementById("name").value = "";
+        }
+    }
+</script>
+</html>

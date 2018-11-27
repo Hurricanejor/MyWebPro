@@ -1,0 +1,30 @@
+.container {
+	margin: auto;
+	width: 800px;
+	overflow: hidden;
+	background-color: #0099cc;
+}
+.title {
+	float: left;
+	text-align: center;
+	width: 25%;
+	
+}
+h1 {
+	line-height: 100px;
+	color: white;
+}
+.basic_info_wrap {
+	background-color: white;
+	float: left;
+	width: 70%;
+	padding: 0 20px;
+}
+p span {
+	font-weight: bold;
+	margin-right: 5px;
+}
+p i {
+	font-style: normal;
+	margin-right: 20px;
+}

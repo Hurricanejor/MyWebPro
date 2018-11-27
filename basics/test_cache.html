@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>opacity</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #oDiv {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="oDiv"></div>
+<script type="text/javascript">
+    window.onload = function(){
+    //     var oDiv = document.getElementById('oDiv');
+    //     oDiv.onmouseover = function(){
+    //         startmove(0.5);
+    //     }
+    //     oDiv.onmouseout = function(){
+    //         startmove(1);
+    //     }
+    //     var timer = null;
+    //     function startmove(target){
+    //         clearInterval(timer);
+    //         timer = setInterval(function(){
+    //             var speed = 0;
+    //             if(oDiv.style.opacity>target){
+    //                 speed = -0.1;
+    //             }else{
+    //                 speed = 0.1;
+    //             };
+    //             if (oDiv.style.opacity==target) {
+    //                 clearInterval(timer);
+    //             } else {
+    //                 oDiv.style.opacity+=speed;
+    //             }      
+    //         },50);
+    //     }
+    // }
+
+     var oDiv = document.getElementById('oDiv');
+          var time = null;
+          var alpha = 50;
+          function startmove(target){
+            var speed = 10;
+            if (alpha<target) {
+                speed = 10;
+            }
+            else{
+                speed = -10;
+            }
+            clearInterval(time);
+            time = setInterval(function (){
+                if(alpha==target){
+                    clearInterval(time);
+                }
+                        else{
+                              alpha+=speed;
+                              oDiv.style.opacity = alpha/100;
+                              oDiv.style.filter = "alpha(opacity:"+alpha+")";
+                    }
+            },60);
+            }
+           oDiv.onmouseover = function(){
+            startmove(0.5);
+            }
+            oDiv.onmouseout = function(){
+            startmove(1);
+            }
+        }
+</script>
+</body>
+</html>

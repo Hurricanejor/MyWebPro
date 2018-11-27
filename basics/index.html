@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学习布局</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		/*头部logo区域*/
+		nav {
+			width: 100%;
+			height: 50px;
+			background-color: #555555;
+		}
+		.top_banner {
+			width: 960px;
+			margin: auto;
+			height: 50px;
+		}
+		.top_banner p {
+			float: left;
+			color: white;
+			font-size: 25px;
+			line-height: 50px;
+		}
+		.link_span {
+			float: right;
+			color: white;
+		}
+		.link_span a {
+			margin: 0 5px;
+		}
+		.link_span a:link,
+		.link_span a:visited,
+		.link_span a:hover,
+		.link_span a:active {
+			color: white;
+		}
+
+		/*banner区域*/
+		.banner_wrap {
+			width: 100%;
+			height: 200px;
+			background-color: #33CC52;
+			position: relative;
+		}
+		.banner_wrap ul {
+			position: absolute;
+			bottom: 20px;
+			right: 50px;
+			display: flex;
+			flex-flow: row wrap;
+		}
+		.banner_wrap li {
+			text-align: center;
+			list-style-type: none;
+			float: left;
+			border: 1px solid #000;
+			margin: 5px;
+			margin-top: 10px;
+			width: 20px;
+			height: 20px;
+			background: rgba(256,256,256,0.2);
+		}
+		li.current {
+			/*height: 35px;*/
+			margin-top: 0;
+			padding-top: 10px;
+			background: rgba(256,256,256,0.7);
+		}
+
+		/*主导航*/
+		.main_banner {
+			width: 100%;
+			margin: 20px 0;
+		}
+		.banner_middle_wrap {
+			border-bottom: 1px solid #DCDCDC;
+		}
+		.banner_middle_box {
+			width: 960px;
+			margin: auto;
+		}
+		.banner_middle_box ul {
+			display: flex;
+		}
+		.banner_middle_box li {
+			text-align: center;
+			list-style-type: none;
+			float: left;
+			width: 100px;
+			background-color: #efefef;
+			border: 1px solid #DCDCDC;
+			border-bottom: none;
+			border-radius: 20px 20px 0 0;
+		}
+		.banner_middle_box li span {
+			line-height: 50px;
+		}
+		li.tab_choose {
+			box-sizing: border-box;
+			background-color: white;
+			border-bottom: 1px solid white;
+		}
+		/*.bottom_border {
+			background-color: #DCDCDC;
+			width: 100%;
+			height: 1px;
+		}*/
+
+		/*内容区域*/
+		section {
+			width: 960px;
+			margin: auto;
+			/*flex: 2 250px;*/
+		}
+		.top_line,
+		.middle_line,
+		.bottom_line {
+			display: flex;
+			flex-flow: row wrap;
+		}
+		.top_line div,
+		.middle_line div,
+		.bottom_line div {
+			border: 1px solid #DCDCDC;
+			margin: 3.5px;
+		}
+
+		.top_line div {
+			flex: 1 210px;
+		}
+		.top_line div:nth-child(3) {
+			flex: 1 150px;
+		}
+
+		.middle_line div {
+			/*display: flex;
+			flex-flow: row wrap;*/
+			flex: 1 200px;
+		}
+
+		.bottom_line div {
+			display: flex;
+			flex-flow: row wrap;
+			flex: 1 300px;
+		}
+		section div p {
+			text-align: center;
+			padding: 80px;
+			margin: auto;
+		}
+
+		/*底部*/
+		.bottom_box {
+			margin-top: 20px;
+			height: 80px;
+			width: 100%;
+			background: rgba(0,0,0,0.6);
+		}
+		.bottom_box p {
+			padding: 10px;
+			text-align: center;
+			color: white;
+			font-size: 12px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+	设计稿分为头部，中间的Banner，主导航，内容区域，底部
+	1.头部区域为100%宽的一个深色背景，头部中间有一块960px的定宽居中区域，里面包括了左边的Logo和右上角导航
+	2.Banner为100%宽的区块，中间右下方有banner轮显的当前图片数字的示例，其中正在显示的图片对应的数字有特殊样式（注意不需要实现轮显banner的业务逻辑，只是按照设计稿做静态样式）
+	3.主导航区域，有一个100%宽的灰色线条，线条之上，在中间960px区域是导航菜单，当前正在浏览页对应的菜单有特殊样式
+	4.主要内容区域，宽度为960px，里面每个内容都有至少80px的padding，每一个内容的宽度均为自适应，可以使用flex布局
+	-->
+
+
+	<!-- 头部 -->
+	<nav>
+		<div class="top_banner">
+			<p>Logo</p>
+			<div class="link_span">
+				<a href="">Github</a><a href="">Register</a><a href="">Login</a>
+			</div>
+		</div>
+	</nav>
+	
+	<!-- 中间的banner -->
+	<div class="banner_wrap">
+		<ul>
+			<li>1</li>
+			<li class="current">2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</div>
+
+	<!-- 主导航 -->
+	<div class="main_banner">
+		<div class="banner_middle_wrap">
+			<div class="banner_middle_box">
+				<ul>
+					<li class="tab_choose"><span>HOME</span></li>
+					<li><span>PROFILE</span></li>
+					<li><span>ABOUT</span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- 内容区域 -->
+	<section>
+		<div class="top_line">
+			<div><p>This is Content1</p></div>
+			<div><p>MaybeContent2</p></div>
+			<div><p>Content3</p></div>
+		</div>
+
+		<div class="middle_line">
+			<div><p>Content4</p></div>
+			<div><p>Content5</p></div>
+			<div><p>Content6</p></div>
+			<div><p>Content7</p></div>
+		</div>
+		
+		<div class="bottom_line">
+			<div><p>Content8</p></div>
+			<div><p>Content9</p></div>
+			<div><p>Content10</p></div>
+		</div>
+	</section>
+
+	<!-- 底部 -->
+	<div class="bottom_box">
+		<p>&copy; 2018 ife.baidu.com</p>
+	</div>
+</body>
+</html>

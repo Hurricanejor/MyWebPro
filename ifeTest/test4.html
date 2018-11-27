@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>3D 空间的卡片翻转动效</title>
+	<style type="text/css">
+		.img_wrap {
+			width: 250px;
+			height: 350px;
+			margin: auto;
+			perspective: 1000px;
+		}
+		#front {
+			width: 250px;
+			height: 350px;
+			position: absolute;
+			transform: rotateY(-180deg);
+			backface-visibility: hidden;
+			transition: 2s;
+			background: url("src/img/test4_img1.jpg");
+		}
+		#behind {
+			width: 250px;
+			height: 350px;
+			position: absolute;
+			transition: 2s;
+			backface-visibility: hidden;
+			background: url("src/img/test4_img2.jpg");
+		}
+		.img_wrap:hover #front{
+			transform: rotateY(0deg);
+		}
+		.img_wrap:hover #behind{
+			transform: rotateY(180deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="img_wrap">
+		<div id="front"></div>
+		<div id="behind"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+
+	.text_transition {
+		text-align: center;
+		font-size: 28px;
+		margin: 50px auto;
+	}
+	#toggole {
+		display: block;
+		margin: auto;
+		background-color: white;
+		outline: none;
+		border: 1px solid #DCDCDC;
+		border-radius: 5px;
+		height: 35px;
+		width: 120px;
+		box-shadow: 0 1px 1px #999999;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	.color {
+		color: #3863E3;
+	}
+	.border_bottom {
+		margin: 10px auto;
+		height: 3px;
+		width: 0px;
+		background-color: #3863E3;
+		transition: width .5s;
+	}
+	.first_transition {
+		width: 120px;
+		transition-timing-function: ease;
+	}

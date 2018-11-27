@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript-3的小游戏</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="bootstrap/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style type="text/css" media="screen">
+    .container {
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 6px;
+        border: 2px solid #286090;
+    }
+    input,button,.input-group,.btn-group {
+        margin: 10px auto;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <p id="result" class="alert alert-success">请打开调式页面控制台查看此实例的结果</p>
+        <a href="js_17_02.html" class="btn btn-success">上一个任务</a>
+        <a href="js_17_04.html" class="btn btn-primary pull-right">下一个任务</a>
+    </div>
+    <script>
+
+        /*
+        3的小游戏，练习使用循环和条件语句，实现如下需求：
+
+        从1到100，以此在console输出各数字，但是，当数字为3的倍数或者含有3的时候，输出“PA”
+        比如：1,2,PA,4,5,PA,……,11,PA,PA,14,PA……
+        */
+        function method() {
+            for (var i = 1; i <= 100; i++) {
+                var j = i.toString();
+                if (j.indexOf("3") > -1 || (i % 3 == 0)) {
+                    console.log("PA");
+                }
+                else {
+                    console.log(i);
+                }
+            }
+        }
+        method();
+    </script>
+</body>
+</html>
