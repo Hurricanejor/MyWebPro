@@ -12,23 +12,36 @@
   <script src="bootstrap/js/bootstrap.min.js" crossorigin="anonymous"></script>
   <style type="text/css" media="screen">
     body {}
-
+    .nav-top {
+        position: fixed;
+        width: 100%;
+        z-index: 9;
+    }
     .contentBox {
-      position: relative;
-      background: -webkit-linear-gradient(left top, #4070ff, #07EE7F);
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        overflow: hidden;
+
+      /* position: relative; */
+      /* background: -webkit-linear-gradient(left top, #4070ff, #07EE7F); */
       /* Safari 5.1 - 6.0 */
-      background: -o-linear-gradient(bottom right, #4070ff, #07EE7F);
+      /* background: -o-linear-gradient(bottom right, #4070ff, #07EE7F); */
       /* Opera 11.1 - 12.0 */
-      background: -moz-linear-gradient(bottom right, #4070ff, #07EE7F);
+      /* background: -moz-linear-gradient(bottom right, #4070ff, #07EE7F); */
       /* Firefox 3.6 - 15 */
-      background: linear-gradient(to bottom right, #4070ff, #07EE7F);
+      /* background: linear-gradient(to bottom right, #4070ff, #07EE7F); */
       /* 标准的语法 */
     }
+    .main {
+        width: 100%;
+        height: 100%;
 
-    /* .navbar {
-        position: fixed;
-        top: 0;
-    } */
+        /* 标准的语法 */
+    }
+    .navbar {
+        margin-bottom: 0;
+    }
     /* .container {
         margin: 10px auto;
         padding: 10px;
@@ -39,48 +52,146 @@
     h3 {
       text-align: center;
     }
+    .content-left {
+        width: 50%;
+        height: 100%;
+        float: left;
+        /* background: #fff; */
+        /* filter: brightness(30%); */
+        /* transform: skewY(-35deg) translate(0px,-435px); */
+        /* border-bottom: 100px solid linear-gradient(to bottom right, #4070ff, #07EE7F);
+        border-right: 100px solid transparent; */
+        box-sizing: border-box;
+    }
+    .content-right {
+        width: 50%;
+        height: 100%;
+        float: left;
+        overflow: hidden;
+        background: #fff;
+        /* transform: skewY(35deg) translate(0px,-435px); */
+    }
+    .skw-page__skewed {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 70%;
+        height: 100%;
+        -webkit-transform: skewX(-18deg);
+        -ms-transform: skewX(-18deg);
+        transform: skewX(-18deg);
+        /* background: #000; */
+    }
+    .blue-to-green {
+        left: -20%;
+        background: -webkit-linear-gradient(left top, #4070ff, #07EE7F);
+        /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(bottom right, #4070ff, #07EE7F);
+        /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(bottom right, #4070ff, #07EE7F);
+        /* Firefox 3.6 - 15 */
+        background: linear-gradient(to bottom right, #4070ff, #07EE7F);
+    }
+    .green-to-blue {
+        right: -20%;
+        background: -webkit-linear-gradient(left top, #07EE7F, #4070ff);
+        /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(bottom right, #07EE7F, #4070ff);
+        /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(bottom right, #07EE7F, #4070ff);
+        /* Firefox 3.6 - 15 */
+        background: linear-gradient(to bottom right, #07EE7F, #4070ff);
+    }
+    .filter-dark {
+        filter: brightness(60%);
+    }
+    .main-box {
+        width: 300px;
+        border-radius: 5px;
+        border: 1px solid #fff;
+        margin: auto;
+        position: absolute;
+        top: 30%;
+        left: 0;
+        right: 0;
+        color: #fff;
+        text-align: center;
+    }
+    .main-box input {
+        border-radius: 5px;
+        border: 1px solid #fff;
+        background-color: transparent;
+        outline: none;
+        height: 35px;
+        margin: 15px auto;
+        padding: 5px;
+    }
+    input[type="button"]{
+        background-color: #fff;
+        color: #333333;
+    }
   </style>
 </head>
 
 <body>
-  <div class="contentBox">
 
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
-            <span class="sr-only">切换导航</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">菜鸟教程</a>
-        </div>
-        <div class="collapse navbar-collapse" id="example-navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">iOS</a></li>
-            <li><a href="#">SVN</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Java <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#">jmeter</a></li>
-                <li><a href="#">EJB</a></li>
-                <li><a href="#">Jasper Report</a></li>
-                <li class="divider"></li>
-                <li><a href="#">分离的链接</a></li>
-                <li class="divider"></li>
-                <li><a href="#">另一个分离的链接</a></li>
+    <div class="nav-top">
+        <nav class="navbar navbar-inverse" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">首页</a>
+            </div>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">IFE-TO DO LIST</a></li>
+                <li><a href="#">JY-MD5</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    下拉菜单栏 <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">选项1</a></li>
+                    <li><a href="#">选项2</a></li>
+                    <li><a href="#">选项3</a></li>
+                    <!-- 间隔线 -->
+                    <li class="divider"></li>
+                    <li><a href="#">分离的链接</a></li>
+                  </ul>
+                </li>
               </ul>
-            </li>
-          </ul>
+            </div>
+          </div>
+        </nav>
+    </div>
+
+      <div class="contentBox">
+        <div class="content-left">
+            <div class="skw-page__skewed blue-to-green">
+                <div class="">
+
+                </div>
+            </div>
         </div>
-      </div>
-    </nav>
+        <div class="content-right">
+            <div class="skw-page__skewed green-to-blue filter-dark">
 
+            </div>
+        </div>
+        <div class="main-box">
+            <H2>HELLO WORLD</H2>
+            <p>HERE SOMETHING TO TELL YOU</p>
+            <label for="NAME">TELL ME WHO YOU ARE:</label>
+            <input type="text" name="NAME" value="">
+            <input type="button" name="" value="GO!">
+        </div>
 
-    <div class="container">
+    <!-- <div class="container">
       <div class="list-group">
         <h3 class="list-group-item active">IFE-2018-零基础学院</h3>
         <a href="./js_16.html" class="list-group-item">1.两个数字的简单计算</a>
@@ -106,7 +217,7 @@
         <a href="../ifeTest/test4.html" class="list-group-item">3.3D 空间的卡片翻转动效</a>
         <a href="../ifeTest/test5.html" class="list-group-item">4.旋转的立方体</a>
       </div>
-    </div>
+    </div> -->
   </div>
 </body>
 
