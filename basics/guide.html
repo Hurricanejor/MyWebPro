@@ -8,10 +8,21 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://at.alicdn.com/t/font_947057_fyej5v3ppth.css">
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="bootstrap/js/bootstrap.min.js" crossorigin="anonymous"></script>
   <style type="text/css" media="screen">
-    body {}
+      .iconfont {
+          font-size: 25px;
+          color: #fff;
+      }
+      .main {
+
+              height: 100%;
+              width: 100%;
+              position: absolute;
+          overflow: hidden;
+      }
     .nav-top {
         position: fixed;
         width: 100%;
@@ -22,68 +33,34 @@
         width: 100%;
         position: absolute;
         overflow: hidden;
-
-      /* position: relative; */
-      /* background: -webkit-linear-gradient(left top, #4070ff, #07EE7F); */
-      /* Safari 5.1 - 6.0 */
-      /* background: -o-linear-gradient(bottom right, #4070ff, #07EE7F); */
-      /* Opera 11.1 - 12.0 */
-      /* background: -moz-linear-gradient(bottom right, #4070ff, #07EE7F); */
-      /* Firefox 3.6 - 15 */
-      /* background: linear-gradient(to bottom right, #4070ff, #07EE7F); */
-      /* 标准的语法 */
     }
     .main {
         width: 100%;
         height: 100%;
-
-        /* 标准的语法 */
     }
     .navbar {
         margin-bottom: 0;
     }
-    /* .container {
-        margin: 10px auto;
-        padding: 10px;
-        border-radius: 6px;
-        border: 2px solid #286090;
-    } */
-
     h3 {
       text-align: center;
     }
-    .content-left {
+    .content-left, .content-right {
         width: 50%;
         height: 100%;
         float: left;
-        /* background: #fff; */
-        /* filter: brightness(30%); */
-        /* transform: skewY(-35deg) translate(0px,-435px); */
-        /* border-bottom: 100px solid linear-gradient(to bottom right, #4070ff, #07EE7F);
-        border-right: 100px solid transparent; */
-        box-sizing: border-box;
-    }
-    .content-right {
-        width: 50%;
-        height: 100%;
-        float: left;
-        overflow: hidden;
-        background: #fff;
-        /* transform: skewY(35deg) translate(0px,-435px); */
     }
     .skw-page__skewed {
         overflow: hidden;
         position: absolute;
         top: 0;
-        width: 70%;
+        width: 75%;
         height: 100%;
-        -webkit-transform: skewX(-18deg);
-        -ms-transform: skewX(-18deg);
-        transform: skewX(-18deg);
-        /* background: #000; */
+        -webkit-transform: skewX(-13deg);
+        -ms-transform: skewX(-13deg);
+        transform: skewX(-13deg);
     }
     .blue-to-green {
-        left: -20%;
+        left: -25%;
         background: -webkit-linear-gradient(left top, #4070ff, #07EE7F);
         /* Safari 5.1 - 6.0 */
         background: -o-linear-gradient(bottom right, #4070ff, #07EE7F);
@@ -93,7 +70,7 @@
         background: linear-gradient(to bottom right, #4070ff, #07EE7F);
     }
     .green-to-blue {
-        right: -20%;
+        right: -25%;
         background: -webkit-linear-gradient(left top, #07EE7F, #4070ff);
         /* Safari 5.1 - 6.0 */
         background: -o-linear-gradient(bottom right, #07EE7F, #4070ff);
@@ -106,14 +83,14 @@
         filter: brightness(60%);
     }
     .main-box {
-        width: 300px;
+        width: 40%;
         border-radius: 5px;
         border: 1px solid #fff;
         margin: auto;
         position: absolute;
-        top: 30%;
-        left: 0;
-        right: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
         color: #fff;
         text-align: center;
     }
@@ -130,11 +107,91 @@
         background-color: #fff;
         color: #333333;
     }
+
+    #enter-right {
+        height: 35px;
+        width: 50px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 10px;
+        margin: auto;
+        cursor: pointer;
+    }
+    #enter-right i {
+        display: inline-block;
+        position: absolute;
+        -webkit-animation: enter .8s ease-in-out infinite alternate;
+        -moz-animation: enter .8s ease-in-out infinite alternate;
+        -o-animation: enter .8s ease-in-out infinite alternate;
+        animation: enter .8s ease-in-out infinite alternate;
+    }
+
+    .container {
+        position: absolute;
+        left: 100%;
+    }
+    /* 进入动画 */
+    @keyframes enter {
+        from {left: 0;color: #fff;}
+        to {left: 20px;color: #176478;}
+    }
+    @-moz-keyframes enter {
+        from {left: 0;color: #fff;}
+        to {left: 20px;color: #176478;}
+    }
+    @-webkit-keyframes enter {
+        from {left: 0;color: #fff;}
+        to {left: 20px;color: #176478;}
+    }
+    @-o-keyframes enter {
+        from {left: 0;color: #fff;}
+        to {left: 20px;color: #176478;}
+    }
+
+    /* 点击进入右侧动画 */
+    @keyframes enterRight {
+        from {opacity: 1;right: 0;}
+        to {opacity: 0;right: 100%;}
+    }
+    @-moz-keyframes enterRight {
+        from {opacity: 1;right: 0;}
+        to {opacity: 0;right: 100%;}
+    }
+    @-webkit-keyframes enterRight {
+        from {opacity: 1;right: 0;}
+        to {opacity: 0;right: 100%;}
+    }
+    @-o-keyframes enterRight {
+        from {opacity: 1;right: 0;}
+        to {opacity: 0;right: 100%;}
+    }
+
+    /* 点击从右侧划入动画 */
+    @keyframes enterFromRight {
+        from {opacity: 0;left: 100%;}
+        to {opacity: 1;left: 0;}
+    }
+    @-moz-keyframes enterFromRight {
+        from {opacity: 0;left: 100%;}
+        to {opacity: 1;left: 0;}
+    }
+    @-webkit-keyframes enterFromRight {
+        from {opacity: 0;left: 100%;}
+        to {opacity: 1;left: 0;}
+    }
+    @-o-keyframes enterFromRight {
+        from {opacity: 0;left: 100%;}
+        to {opacity: 1;left: 0;}
+    }
+
+    @keyframes Gradient {
+        /* 渐变：还没想好怎么实现 */
+    }
   </style>
 </head>
 
 <body>
-
     <div class="nav-top">
         <nav class="navbar navbar-inverse" role="navigation">
           <div class="container-fluid">
@@ -169,56 +226,66 @@
           </div>
         </nav>
     </div>
-
-      <div class="contentBox">
-        <div class="content-left">
-            <div class="skw-page__skewed blue-to-green">
-                <div class="">
-
+    <div class="main">
+        <div class="contentBox">
+            <div class="content-left">
+                <div class="skw-page__skewed blue-to-green">
+                    <!-- 左侧斜框 -->
                 </div>
             </div>
-        </div>
-        <div class="content-right">
-            <div class="skw-page__skewed green-to-blue filter-dark">
+            <div class="content-right">
+                <div class="skw-page__skewed green-to-blue filter-dark">
+                    <!-- 右侧 -->
+                </div>
+            </div>
+            <div class="main-box">
+                <H2>HELLO WORLD</H2>
+                <p>HERE SOMETHING TO TELL YOU</p>
+                <label for="NAME">TELL ME WHO YOU ARE:</label>
+                <input type="text" name="NAME" value="">
+                <input type="button" name="" value="GO!">
+            </div>
 
+            <div id="enter-right">
+                <i class="iconfont icon-jinru"></i>
             </div>
         </div>
-        <div class="main-box">
-            <H2>HELLO WORLD</H2>
-            <p>HERE SOMETHING TO TELL YOU</p>
-            <label for="NAME">TELL ME WHO YOU ARE:</label>
-            <input type="text" name="NAME" value="">
-            <input type="button" name="" value="GO!">
+        <!-- TODOLIST -->
+        <div class="container">
+            <div class="list-group">
+                <h3 class="list-group-item active">IFE-2018-零基础学院</h3>
+                <a href="./js_16.html" class="list-group-item">1.两个数字的简单计算</a>
+                <a href="./js_17_01.html" class="list-group-item">2.十进制数字转换成二进制（1）</a>
+                <a href="./js_17_02.html" class="list-group-item">3.十进制数字转换成二进制（2）</a>
+                <a href="./js_17_03.html" class="list-group-item">4.3的小游戏</a>
+                <a href="./js_17_04.html" class="list-group-item">5.九九乘法表</a>
+                <a href="./js_20_01.html" class="list-group-item">6.与JS的交互</a>
+                <a href="./js_20_02.html" class="list-group-item">7.选择一个DOM元素</a>
+                <a href="./js_20_03.html" class="list-group-item">8.点击显示颜色</a>
+                <a href="./ts2.html" class="list-group-item">9.定时器实现淡入淡出</a>
+                <a href="./js_20_05.html" class="list-group-item">10.定时器实现笑脸动画</a>
+                <a href="./js_22_01.html" class="list-group-item">11.实现对应按钮功能</a>
+                <a href="./myResume.html" class="list-group-item">12.简历</a>
+                <a href="./first_page.html" class="list-group-item">13.第一个页面</a>
+                <a href="./second_page_new_use_bootstrap.html" class="list-group-item">14.复杂页面实现</a>
+            </div>
+
+            <div class="list-group">
+                <h3 class="list-group-item active">IFE-2018-设计师学院</h3>
+                <a href="../ifeTest/test1.html" class="list-group-item">1.制作一个简单的菜单动画效果</a>
+                <a href="../ifeTest/test3-1.html" class="list-group-item">2.纯 CSS 实现猫笑起来的动画</a>
+                <a href="../ifeTest/test4.html" class="list-group-item">3.3D 空间的卡片翻转动效</a>
+                <a href="../ifeTest/test5.html" class="list-group-item">4.旋转的立方体</a>
+            </div>
         </div>
-
-    <!-- <div class="container">
-      <div class="list-group">
-        <h3 class="list-group-item active">IFE-2018-零基础学院</h3>
-        <a href="./js_16.html" class="list-group-item">1.两个数字的简单计算</a>
-        <a href="./js_17_01.html" class="list-group-item">2.十进制数字转换成二进制（1）</a>
-        <a href="./js_17_02.html" class="list-group-item">3.十进制数字转换成二进制（2）</a>
-        <a href="./js_17_03.html" class="list-group-item">4.3的小游戏</a>
-        <a href="./js_17_04.html" class="list-group-item">5.九九乘法表</a>
-        <a href="./js_20_01.html" class="list-group-item">6.与JS的交互</a>
-        <a href="./js_20_02.html" class="list-group-item">7.选择一个DOM元素</a>
-        <a href="./js_20_03.html" class="list-group-item">8.点击显示颜色</a>
-        <a href="./ts2.html" class="list-group-item">9.定时器实现淡入淡出</a>
-        <a href="./js_20_05.html" class="list-group-item">10.定时器实现笑脸动画</a>
-        <a href="./js_22_01.html" class="list-group-item">11.实现对应按钮功能</a>
-        <a href="./myResume.html" class="list-group-item">12.简历</a>
-        <a href="./first_page.html" class="list-group-item">13.第一个页面</a>
-        <a href="./second_page_new_use_bootstrap.html" class="list-group-item">14.复杂页面实现</a>
-      </div>
-
-      <div class="list-group">
-        <h3 class="list-group-item active">IFE-2018-设计师学院</h3>
-        <a href="../ifeTest/test1.html" class="list-group-item">1.制作一个简单的菜单动画效果</a>
-        <a href="../ifeTest/test3-1.html" class="list-group-item">2.纯 CSS 实现猫笑起来的动画</a>
-        <a href="../ifeTest/test4.html" class="list-group-item">3.3D 空间的卡片翻转动效</a>
-        <a href="../ifeTest/test5.html" class="list-group-item">4.旋转的立方体</a>
-      </div>
-    </div> -->
-  </div>
+    </div>
 </body>
-
+<script type="text/javascript">
+    window.onload = function() {
+        document.getElementById("enter-right").onclick = function() {
+            document.getElementsByClassName("contentBox")[0].style.animation = "enterRight .8s linear forwards";
+            document.getElementsByClassName("container")[0].style.animation = "enterFromRight .8s linear forwards";
+        }
+    }
+</script>
 </html>
