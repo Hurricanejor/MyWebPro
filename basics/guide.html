@@ -37,6 +37,14 @@
     .main {
         width: 100%;
         height: 100%;
+
+        background: -webkit-linear-gradient(bottom right, #98CCD3, #132238);
+        /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(bottom right,#98CCD3, #132238);
+        /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(bottom right, #98CCD3, #132238);
+        /* Firefox 3.6 - 15 */
+        background: linear-gradient(to bottom right,#98CCD3, #132238);
     }
     .navbar {
         margin-bottom: 0;
@@ -130,6 +138,7 @@
     .container {
         position: absolute;
         left: 100%;
+        margin-top: 60px;
     }
     /* 进入动画 */
     @keyframes enter {
@@ -252,30 +261,32 @@
         </div>
         <!-- TODOLIST -->
         <div class="container">
-            <div class="list-group">
-                <h3 class="list-group-item active">IFE-2018-零基础学院</h3>
-                <a href="./js_16.html" class="list-group-item">1.两个数字的简单计算</a>
-                <a href="./js_17_01.html" class="list-group-item">2.十进制数字转换成二进制（1）</a>
-                <a href="./js_17_02.html" class="list-group-item">3.十进制数字转换成二进制（2）</a>
-                <a href="./js_17_03.html" class="list-group-item">4.3的小游戏</a>
-                <a href="./js_17_04.html" class="list-group-item">5.九九乘法表</a>
-                <a href="./js_20_01.html" class="list-group-item">6.与JS的交互</a>
-                <a href="./js_20_02.html" class="list-group-item">7.选择一个DOM元素</a>
-                <a href="./js_20_03.html" class="list-group-item">8.点击显示颜色</a>
-                <a href="./ts2.html" class="list-group-item">9.定时器实现淡入淡出</a>
-                <a href="./js_20_05.html" class="list-group-item">10.定时器实现笑脸动画</a>
-                <a href="./js_22_01.html" class="list-group-item">11.实现对应按钮功能</a>
-                <a href="./myResume.html" class="list-group-item">12.简历</a>
-                <a href="./first_page.html" class="list-group-item">13.第一个页面</a>
-                <a href="./second_page_new_use_bootstrap.html" class="list-group-item">14.复杂页面实现</a>
-            </div>
+            <div class="row">
+                <div class="list-group col-xs-3">
+                    <h3 class="list-group-item active">IFE-2018-零基础学院</h3>
+                    <a href="./js_16.html" class="list-group-item">1.两个数字的简单计算</a>
+                    <a href="./js_17_01.html" class="list-group-item">2.十进制数字转换成二进制（1）</a>
+                    <a href="./js_17_02.html" class="list-group-item">3.十进制数字转换成二进制（2）</a>
+                    <a href="./js_17_03.html" class="list-group-item">4.3的小游戏</a>
+                    <a href="./js_17_04.html" class="list-group-item">5.九九乘法表</a>
+                    <a href="./js_20_01.html" class="list-group-item">6.与JS的交互</a>
+                    <a href="./js_20_02.html" class="list-group-item">7.选择一个DOM元素</a>
+                    <a href="./js_20_03.html" class="list-group-item">8.点击显示颜色</a>
+                    <a href="./ts2.html" class="list-group-item">9.定时器实现淡入淡出</a>
+                    <a href="./js_20_05.html" class="list-group-item">10.定时器实现笑脸动画</a>
+                    <a href="./js_22_01.html" class="list-group-item">11.实现对应按钮功能</a>
+                    <a href="./myResume.html" class="list-group-item">12.简历</a>
+                    <a href="./first_page.html" class="list-group-item">13.第一个页面</a>
+                    <a href="./second_page_new_use_bootstrap.html" class="list-group-item">14.复杂页面实现</a>
+                </div>
 
-            <div class="list-group">
-                <h3 class="list-group-item active">IFE-2018-设计师学院</h3>
-                <a href="../ifeTest/test1.html" class="list-group-item">1.制作一个简单的菜单动画效果</a>
-                <a href="../ifeTest/test3-1.html" class="list-group-item">2.纯 CSS 实现猫笑起来的动画</a>
-                <a href="../ifeTest/test4.html" class="list-group-item">3.3D 空间的卡片翻转动效</a>
-                <a href="../ifeTest/test5.html" class="list-group-item">4.旋转的立方体</a>
+                <div class="list-group col-xs-3">
+                    <h3 class="list-group-item active">IFE-2018-设计师学院</h3>
+                    <a href="../ifeTest/test1.html" class="list-group-item">1.制作一个简单的菜单动画效果</a>
+                    <a href="../ifeTest/test3-1.html" class="list-group-item">2.纯 CSS 实现猫笑起来的动画</a>
+                    <a href="../ifeTest/test4.html" class="list-group-item">3.3D 空间的卡片翻转动效</a>
+                    <a href="../ifeTest/test5.html" class="list-group-item">4.旋转的立方体</a>
+                </div>
             </div>
         </div>
     </div>
@@ -283,8 +294,8 @@
 <script type="text/javascript">
     window.onload = function() {
         document.getElementById("enter-right").onclick = function() {
-            document.getElementsByClassName("contentBox")[0].style.animation = "enterRight .8s linear forwards";
-            document.getElementsByClassName("container")[0].style.animation = "enterFromRight .8s linear forwards";
+            document.getElementsByClassName("contentBox")[0].style.animation = "enterRight .5s linear forwards";
+            document.getElementsByClassName("container")[0].style.animation = "enterFromRight .5s linear forwards";
         }
     }
 </script>
