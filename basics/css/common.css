@@ -1,6 +1,38 @@
-.container {
-    margin: 10px auto;
-    padding: 10px;
-    border-radius: 6px;
-    border: 2px solid #286090;
-}
+/* .container { margin: 10px auto; padding: 10px; border-radius: 6px; border: 2px solid #286090;} */
+.icon-character { width: 200px; height: 200px; margin: 20px auto; background: url('../src/img/css_sprites.png');}
+.icon-letter-a { background-position: -10px -10px;}
+.icon-letter-b { background-position: -230px -10px;}
+.icon-letter-c { background-position: -10px -230px;}
+.icon-letter-d { background-position: -230px -230px;}
+.icon-letter-e { background-position: -450px -10px;}
+.icon-letter-f { background-position: -450px -230px;}
+.icon-letter-g { background-position: -10px -450px;}
+.icon-letter-h { background-position: -230px -450px;}
+.icon-letter-i { background-position: -450px -450px;}
+.icon-letter-j { background-position: -670px -10px;}
+.icon-letter-k { background-position: -670px -230px;}
+.icon-letter-l { background-position: -670px -450px;}
+.icon-letter-m { background-position: -10px -670px;}
+.icon-letter-n { background-position: -230px -670px;}
+.icon-letter-o { background-position: -450px -670px;}
+.icon-letter-p { background-position: -670px -670px;}
+.icon-letter-q { background-position: -890px -10px;}
+.icon-letter-r { background-position: -890px -230px;}
+.icon-letter-s { background-position: -890px -450px;}
+.icon-letter-t { background-position: -890px -670px;}
+.icon-letter-u { background-position: -10px -890px;}
+.icon-letter-v { background-position: -230px -890px;}
+.icon-letter-w { background-position: -450px -890px;}
+.icon-letter-x { background-position: -670px -890px;}
+.icon-letter-y { background-position: -890px -890px;}
+.icon-letter-z { background-position: -1110px -10px;}
+.icon-letter-0 { background-position: -1110px -230px;}
+.icon-letter-1 { background-position: -1110px -450px;}
+.icon-letter-2 { background-position: -1110px -670px;}
+.icon-letter-3 { background-position: -1110px -890px;}
+.icon-letter-4 { background-position: -10px -1110px;}
+.icon-letter-5 { background-position: -230px -1110px;}
+.icon-letter-6 { background-position: -450px -1110px;}
+.icon-letter-7 { background-position: -670px -1110px;}
+.icon-letter-8 { background-position: -890px -1110px;}
+.icon-letter-9 { background-position: -1110px -1110px;}
